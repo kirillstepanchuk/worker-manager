@@ -1,10 +1,10 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import { grey } from '@mui/material/colors';
 import CloseIcon from '@mui/icons-material/Close';
 import PropTypes from 'prop-types';
 
 import { Modal, ModalContent, CloseButton } from './style';
-import { useHistory } from 'react-router';
 
 const ModalWrapper = ({children}) => {
     const history = useHistory();

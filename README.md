@@ -15,10 +15,11 @@ MERN:
   - Node.js
 
 Additional technologies:
-  - Styled-component
+  - Styled-components
   - React-animations
   - Material-UI
   - Redux + redux saga
+  - mongoose
 
 ## How to start
     app-frontend folder console:

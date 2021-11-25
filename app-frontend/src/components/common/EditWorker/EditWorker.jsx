@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import { useParams } from 'react-router';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -16,7 +17,6 @@ import { useHistory } from 'react-router';
 import loadWorkerData from '../../../store/actions/loadWorkerData/loadWorkerData';
 import { API_URL } from '../../../store/constants';
 import { CardContainer, TopInfoContainer, FileInput } from './style';
-import { useParams } from 'react-router';
 import editWorkerData from '../../../store/actions/editWorkerData/editWorkerData';
 
 const EditWorker = ({worker, loadWorkerData, editWorkerData}) => { 
@@ -169,10 +169,7 @@ const EditWorker = ({worker, loadWorkerData, editWorkerData}) => {
             </>
             }
 
-            <Button 
-                variant="outlined" 
-                type="submit"
-            >
+            <Button variant="outlined" type="submit">
                 Изменить
             </Button>
             

@@ -4,12 +4,6 @@ const WorkerSchema = new Schema({
 	name: {
 		type: String,
 	},
-	surname: {
-		type: String,
-	},
-	lastname: {
-		type: String,
-	},
 	positionType: {
 		type: String,
 	},

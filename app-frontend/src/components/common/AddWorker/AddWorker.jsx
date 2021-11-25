@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
+import { useHistory } from 'react-router';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -9,7 +10,8 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import DownloadDoneIcon from '@mui/icons-material/DownloadDone';
-import { useHistory } from 'react-router';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 import { CardContainer, TopInfoContainer, FileInput} from './style'
 import { API_URL } from "../../../store/constants"
@@ -18,8 +20,29 @@ const AddWorker = () => {
     const [file, setFile] = useState();
     const [name, setName] = useState('');
     const [salary, setSalary] = useState('');
+    const [placeNumber, setPlaceNumber] = useState('')
     const [isAdministration, setIsAdministration] = useState(true);
     const history = useHistory();
+    const [open, setOpen] = React.useState(false);
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
+    };
+
+    const Alert = React.forwardRef(function Alert(props, ref) {
+        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+    });
+
+    const zeroingValues = () => {
+        setFile();
+        setName('');
+        setSalary('');
+        setPlaceNumber('');
+        setIsAdministration(true);
+    };
 
     return (
         <CardContainer
@@ -35,7 +58,9 @@ const AddWorker = () => {
                     data: formData,
                     withCredentials: true,
                 });
-                history.goBack();
+                // history.goBack();
+                setOpen(true);
+                zeroingValues();
             }}
         >
             <TopInfoContainer>
@@ -128,6 +153,8 @@ const AddWorker = () => {
                     label="Номер рабочего места" 
                     variant="standard" 
                     name="placeNumber"
+                    value={placeNumber}
+                    onChange={(evt)=>{setPlaceNumber(evt.target.value)}}
                 />
                 <FormControl component="fieldset">
                     <FormLabel component="legend">Обеденное время:</FormLabel>
@@ -151,7 +178,12 @@ const AddWorker = () => {
             }
 
             <Button variant="outlined" type="submit">Добавить</Button>
-
+            
+            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                    Сотрудник успешно добавлен =)
+                </Alert>
+            </Snackbar>
         </CardContainer>
     )
 }

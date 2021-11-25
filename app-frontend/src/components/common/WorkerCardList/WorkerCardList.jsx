@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import CircularProgress from '@mui/material/CircularProgress';
 
 import WorkerCard from '../WorkerCard/WorkerCard.jsx';
 import loadWorkersData from '../../../store/actions/loadWorkersData/loadWorkersData';
-import { Wrapper } from './style'
+import { Wrapper, TextWrapper } from './style'
 
 const WorkerCardList = ({workers, loadWorkersData, setIsBigModalOpen}) => {
     useEffect(() => {
@@ -14,7 +13,7 @@ const WorkerCardList = ({workers, loadWorkersData, setIsBigModalOpen}) => {
     
     return (
         <Wrapper>
-            {workers.data.length 
+            {workers.data.length
             ?
                 workers.data.map((worker) => {
                     return <WorkerCard 
@@ -24,7 +23,7 @@ const WorkerCardList = ({workers, loadWorkersData, setIsBigModalOpen}) => {
                     />
                 })
             : 
-            <CircularProgress style={{margin: "0 auto"}}/>
+                <TextWrapper>Сотрудников на этой странице нет =(</TextWrapper>
             }
         </Wrapper>
     )

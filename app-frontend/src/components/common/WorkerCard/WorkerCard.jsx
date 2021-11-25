@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { CardContainer, NameTitle, TypeTitle, ParameterHeading, ParameterValue, Link, LinkConteiner } from './style';
 import { API_URL } from "../../../store/constants";
-import { useLocation } from 'react-router-dom';
 
 const WorkerCard = ({worker}) => {
     const [isAdministration, setIsAdministration] = useState(worker.positionType === "administration");
@@ -12,7 +12,6 @@ const WorkerCard = ({worker}) => {
     return (
         <CardContainer>
             <img style={{width: '90px', height: '90px'}} src={`${API_URL}/getImage/${worker.avatar}`} alt="avatar" />
-            {/* <NameTitle>{`${worker.name} ${worker.surname} ${worker.lastname}`}</NameTitle> */}
             <NameTitle>{`${worker.name}`}</NameTitle>
             <TypeTitle>
                 {isAdministration ? "Руководство" : "Сотрудник"}

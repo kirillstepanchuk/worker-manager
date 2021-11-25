@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -9,7 +10,6 @@ import PropTypes from 'prop-types';
 import loadWorkersData from '../../../store/actions/loadWorkersData/loadWorkersData';
 import setFilterParameters from '../../../store/actions/setFilterParameters/setFilterParameters';
 import { Container, ParametersContainer, Title, ButtonContainer, FormLabel, controlProps } from './style';
-import { useDispatch } from 'react-redux';
 
 const Filtration = () => {
     const [isAdministration, setIsAdministration] = useState(false);

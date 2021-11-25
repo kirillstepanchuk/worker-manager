@@ -3,7 +3,6 @@ const { Worker, createWorker, updateWorker, getWorker, getAllWorkers, getFiltere
 
 const handleAddWorker = async (req, res) => {
 	try {
-
 		let filedata = req.file;
 		const result = await createWorker({ ...req.body, avatar: filedata.filename });
 

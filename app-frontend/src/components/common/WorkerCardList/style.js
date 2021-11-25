@@ -17,3 +17,7 @@ export const Wrapper = styled.div`
         width: 1260px;
     }
 `;
+
+export const TextWrapper = styled.div`
+    margin: 0 auto;
+`;
