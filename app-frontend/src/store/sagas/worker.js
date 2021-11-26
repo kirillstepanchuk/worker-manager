@@ -9,7 +9,6 @@ export function* loadWorkersData(action) {
 	try {
 		const payload = action.payload;
 
-		console.log('action: ', action);
 		const responseData = yield call(() => axios.get(
 			`${API_URL}/workers?pageNumber=${payload.page}
 			&positionType=${payload.filterParameters.positionType}

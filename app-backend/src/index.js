@@ -10,12 +10,13 @@ const router = require('./routes/index');
 const app = express();
 
 app.use(cors({
-	origin: 'http://localhost:8080',
+	origin: 'http://localhost:3001',
 	preflightContinue: true,
 	optionsSuccessStatus: 200,
 	credentials: true,
 	methods: 'GET,PUT,PATCH,POST,DELETE',
 }));
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.raw());
