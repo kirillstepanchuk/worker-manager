@@ -1,13 +1,7 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
     entry: "./src/index.js",
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: "index-bundle.js",
-        publicPath: '/'
-    },
     module: {
         rules: [
             {
@@ -21,7 +15,7 @@ module.exports = {
             },
             {
                 test: /\.(ttf|eot|woff|woff2)$/,
-                loader: 'file-loader',
+                loader: 'asset/inline',
                 options: {
                     useRelativePath: true,
                     esModule: false,
@@ -30,9 +24,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: "./src/index.html"
-        })
+        new CleanWebpackPlugin(),
     ],
     devServer: {
         historyApiFallback: true,

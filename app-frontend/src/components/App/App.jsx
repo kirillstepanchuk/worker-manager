@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {Suspense, lazy} from 'react';
 import { Route, Switch, Redirect, useLocation} from 'react-router-dom';
+import CircularProgress from '@mui/material/CircularProgress';
 
-import Workers from '../pages/Workers/Workers.jsx';
-import BigWorker from '../common/BigWorker/BigWorker.jsx';
-import EditWorker from '../common/EditWorker/EditWorker.jsx';
 import { GlobalStyle, Wrapper } from './style.js'
-import ModalWrapper from '../common/ModalWrapper/ModalWrapper.jsx';
-import AddWorker from '../common/AddWorker/AddWorker.jsx';
+const Workers = lazy(() => import('../pages/Workers/Workers.jsx'));
+const BigWorker = lazy(() => import('../modals/BigWorker/BigWorker.jsx'));
+const EditWorker = lazy(() => import('../modals/EditWorker/EditWorker.jsx'));
+const AddWorker = lazy(() => import('../modals/AddWorker/AddWorker.jsx'));
 
 const App = () => {  
     const location = useLocation()
@@ -15,13 +15,15 @@ const App = () => {
     return (
         <Wrapper>
             <GlobalStyle />
-            <Switch location={background || location}>
-                <Route exact path="/workers" children={<Workers />} />
-                <Redirect to="/workers"/>
-            </Switch>
-            {background && <Route path="/worker/:id" children={<ModalWrapper><BigWorker /></ModalWrapper>} />}
-            {background && <Route path="/worker-edit/:id" children={<ModalWrapper><EditWorker /></ModalWrapper>} />}
-            {background && <Route path="/worker-add" children={<ModalWrapper><AddWorker /></ModalWrapper>} />}
+            <Suspense fallback={<CircularProgress />}>
+                <Switch location={background || location}>
+                    <Route exact path="/workers" children={<Workers />} />
+                    <Redirect to="/workers"/>
+                </Switch>
+                {background && <Route path="/worker/:id" children={<BigWorker />} />}
+                {background && <Route path="/worker-edit/:id" children={<EditWorker />} />}
+                {background && <Route path="/worker-add" children={<AddWorker />} />}
+            </Suspense>
         </Wrapper>
     )
 }
