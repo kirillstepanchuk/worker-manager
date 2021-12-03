@@ -5,9 +5,9 @@ import worker from './worker';
 import filterParameters from './filterParameters';
 
 const root = combineReducers({
-	workers,
-	worker,
-	filterParameters,
+  workers,
+  worker,
+  filterParameters,
 });
 
 export default root;

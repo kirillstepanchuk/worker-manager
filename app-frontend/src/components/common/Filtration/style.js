@@ -39,10 +39,10 @@ export const FormLabel = styled.span`
 `;
 
 export const controlProps = {
-    sx: {
-        color: "#ffffff",
-        '&.Mui-checked': {
-            color: "#ffffff",
-        },
-    }
+  sx: {
+    color: '#ffffff',
+    '&.Mui-checked': {
+      color: '#ffffff',
+    },
+  },
 };
