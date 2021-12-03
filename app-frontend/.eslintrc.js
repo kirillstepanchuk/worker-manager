@@ -25,5 +25,10 @@ module.exports = {
   ],
   rules: {
     'no-console': 'off',
+    'import/prefer-default-export': 'off',
+    'import/extensions': 'off',
+    'import/no-dynamic-require': 'off',
+    'global-require': 'off',
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
   },
 };

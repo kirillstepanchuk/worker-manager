@@ -1,7 +1,7 @@
 import initialState from '../initialState';
 import { LOAD_WORKER_DATA_SUCCESS, EDIT_WORKER_DATA } from '../constants';
 
-const worker = (state = initialState.worker, action) => {
+const worker = (state = initialState.worker, action = {}) => {
   switch (action.type) {
     case LOAD_WORKER_DATA_SUCCESS:
       return {

@@ -10,10 +10,7 @@ export function* loadWorkersData(action) {
     const { payload } = action;
 
     const responseData = yield call(() => axios.get(
-      `${API_URL}/workers?pageNumber=${payload.page}
-			&positionType=${payload.filterParameters.positionType}
-			&sortingType=${payload.filterParameters.sortingType}
-			&time=${payload.filterParameters.time}`,
+      `${API_URL}/workers?pageNumber=${payload.page}&positionType=${payload.filterParameters.positionType}&sortingType=${payload.filterParameters.sortingType}&time=${payload.filterParameters.time}`,
     ).then((response) => response.data));
 
     yield put(loadWorkersDataSuccess(responseData));
