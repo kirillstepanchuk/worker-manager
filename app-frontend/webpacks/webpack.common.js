@@ -40,8 +40,8 @@ module.exports = (env) => {
       }),
     ],
     // eslint: {
-    //     configFile: './.eslintrc.js',
-    //     emitWarning: true
-    // }
+    //   configFile: '../.eslintrc.js',
+    //   emitWarning: true,
+    // },
   };
 };

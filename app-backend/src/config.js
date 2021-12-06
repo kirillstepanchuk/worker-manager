@@ -1,4 +1,4 @@
 module.exports = {
-	APP_PORT: 3000,
-	SEKRET_KEY: 'KIRILL',
+  APP_PORT: 3000,
+  SEKRET_KEY: 'KIRILL',
 };

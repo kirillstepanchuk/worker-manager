@@ -7,7 +7,6 @@ module.exports = {
   },
   extends: [
     'airbnb-base',
-    'prettier',
     'airbnb',
     'eslint:recommended',
     'plugin:react/recommended',
@@ -20,7 +19,6 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: [
-    'prettier',
     'react',
   ],
   rules: {
