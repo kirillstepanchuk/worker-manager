@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,500;1,500&display=swap');
@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
 
         box-sizing: border-box;
     }
-`;
+`
 
 export const Wrapper = styled.div`
     margin: 0 auto;
@@ -31,4 +31,4 @@ export const Wrapper = styled.div`
     @media (min-width: 1300px) {
         width: 1300px;
     }
-`;
+`

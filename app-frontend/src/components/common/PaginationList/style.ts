@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const PaginationContainer = styled.div`
     width: 280px;
@@ -15,4 +15,4 @@ export const PaginationContainer = styled.div`
     @media (min-width: 1300px) {
         width: 1260px;
     }
-`;
+`

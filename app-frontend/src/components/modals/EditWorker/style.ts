@@ -1,23 +1,24 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const CardContainer = styled.form`
-    width: 280px;
+    width: 500px;
 
     margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px;
+
+    background-color: #FFFFFF;
+    border-radius: 20px;
 
     display: flex;
     flex-direction: column;
-
-    @media (min-width: 768px) {
-        width: 500px;
-    }
-`;
+`
 
 export const TopInfoContainer = styled.div`
     display: flex;
-    align-items: center;
-`;
+    align-items: flex-end;
+`
 
 export const FileInput = styled.input`
     display: none;
-`;
+`

@@ -1,0 +1,59 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"parser": "@babel/eslint-parser",
+	"extends": [
+		"airbnb",
+		"airbnb-base",
+		"plugin:react/recommended",
+		"standard",
+		"plugin:react/jsx-runtime",
+		"plugin:testing-library/react",
+		"plugin:jest/all"
+	],
+	"parserOptions": {
+		"requireConfigFile": false,
+		"presets": ["@babel/preset-react"],
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": ["react", "jest"],
+	"rules": {
+		"quotes": [0, "single"],
+		"indent": ["error", "tab"],
+		"no-tabs": 0,
+		"react/prop-types": 0,
+		"react/jsx-uses-react": "error",
+		"react/jsx-uses-vars": "error",
+		"react/jsx-indent": ["error", "tab"],
+		"react/jsx-indent-props": ["error", "tab"],
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+		"linebreak-style": ["error", "windows"],
+		"func-names": ["error", "as-needed"],
+		"no-console": "off",
+		"no-underscore-dangle": ["error", { "allow": ["_id"] }],
+		"no-param-reassign": "off",
+		"global-require": "off",
+		"import/extensions": "off",
+		"jest/require-hook": "off",
+		"import/prefer-default-export": "off",
+		"import/no-dynamic-require": "off",
+		"import/no-extraneous-dependencies": [
+			"error",
+			{ "devDependencies": true }
+		]
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		},
+		"jest": {
+			"version": "latest"
+		}
+	}
+}

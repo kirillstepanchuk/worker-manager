@@ -1,51 +1,50 @@
-import styled from 'styled-components';
-import { Link as RouterLink } from 'react-router-dom';
+import styled from 'styled-components'
 
 export const CardContainer = styled.div`
     position: relative;
 
-    width: 280px;
+    width: 500px;
 
+    margin: 0 auto;
     margin-top: 20px;
     padding: 10px;
-    padding-bottom: 60px;
+    padding-bottom: 70px;
 
-    border: 1px solid #B9C4C9;
+    background-color: #FFFFFF;
     border-radius: 20px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    @media (min-width: 768px) {
-        width: 340px;
-    }
-
-    @media (min-width: 1300px) {
-        width: 280px;
-    }
-`;
+`
 
 export const NameTitle = styled.span`
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 600;
 
     margin-top: 10px;
-`;
+`
 
 export const TypeTitle = styled.span`
     color: #B9C4C9;
-`;
+    font-size: 20px;
+`
 
 export const ParameterHeading = styled.span`
+    font-size: 20px;
+
     margin-top: 10px;
-`;
+`
 
 export const ParameterValue = styled.span`
-    color: #B9C4C9;
-`;
+    font-size: 16px;
+    color: #B9C4C9 ;
+`
 
-export const Link = styled(RouterLink)`
+export const LinkS = styled.a`
+    position: absolute;
+    bottom: 10px;
+
     text-decoration: none;
     color: #B9C4C9;
 
@@ -59,14 +58,4 @@ export const Link = styled(RouterLink)`
         border-color: #000000;
         transition: .5s;
     }
-`;
-
-export const LinkConteiner = styled.div`
-    position: absolute;
-    bottom: 10px;
-
-    width: 190px;
-
-    display: flex;
-    justify-content: space-between;;
-`;
+`
