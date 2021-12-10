@@ -1,5 +1,5 @@
-import React, { useState, FC } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState, FC } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import {
 	CardContainer,
@@ -8,28 +8,16 @@ import {
 	ParameterHeading,
 	ParameterValue,
 	Link,
-	LinkConteiner,
-} from './style';
-import { API_URL } from '../../../store/constants';
+	LinkConteiner
+} from './style'
+import { API_URL } from '../../../store/constants'
+import { WorkerProps } from '../../../types/worker'
 
-interface IProps {
-	worker: {
-		avatar: string,
-		name: string,
-		placeNumber?: string,
-		positionType: string,
-		salary: number,
-		time: string,
-		__v: number,
-		_id: string,
-	}
-}
-
-const WorkerCard: FC<IProps> = ({ worker }) => {
+const WorkerCard: FC<WorkerProps> = function ({ worker }) {
 	const [isAdministration, setIsAdministration] = useState(
 		worker.positionType === 'administration'
-	);
-	const location = useLocation();
+	)
+	const location = useLocation()
 
 	return (
 		<CardContainer>
@@ -43,25 +31,31 @@ const WorkerCard: FC<IProps> = ({ worker }) => {
 				{isAdministration ? 'Руководство' : 'Сотрудник'}
 			</TypeTitle>
 			<ParameterHeading>Зарплата:</ParameterHeading>
-			<ParameterValue>{worker.salary} BYN</ParameterValue>
-			{isAdministration ? (
-				<>
-					<ParameterHeading>Часы приема:</ParameterHeading>
-					<ParameterValue>{worker.time}</ParameterValue>
-				</>
-			) : (
-				<>
-					<ParameterHeading>Обеденное время:</ParameterHeading>
-					<ParameterValue>{worker.time}</ParameterValue>
-					<ParameterHeading>Номер рабочего места:</ParameterHeading>
-					<ParameterValue>{worker.placeNumber}</ParameterValue>
-				</>
-			)}
+			<ParameterValue>
+				{worker.salary}
+				{' '}
+				BYN
+			</ParameterValue>
+			{isAdministration
+				? (
+					<>
+						<ParameterHeading>Часы приема:</ParameterHeading>
+						<ParameterValue>{worker.time}</ParameterValue>
+					</>
+				)
+				: (
+					<>
+						<ParameterHeading>Обеденное время:</ParameterHeading>
+						<ParameterValue>{worker.time}</ParameterValue>
+						<ParameterHeading>Номер рабочего места:</ParameterHeading>
+						<ParameterValue>{worker.placeNumber}</ParameterValue>
+					</>
+				)}
 			<LinkConteiner>
 				<Link
 					to={{
 						pathname: `/worker/${worker._id}`,
-						state: { background: location },
+						state: { background: location }
 					}}
 				>
 					Открыть
@@ -69,14 +63,14 @@ const WorkerCard: FC<IProps> = ({ worker }) => {
 				<Link
 					to={{
 						pathname: `/worker-edit/${worker._id}`,
-						state: { background: location },
+						state: { background: location }
 					}}
 				>
 					Изменить
 				</Link>
 			</LinkConteiner>
 		</CardContainer>
-	);
-};
+	)
+}
 
-export default WorkerCard;
+export default WorkerCard

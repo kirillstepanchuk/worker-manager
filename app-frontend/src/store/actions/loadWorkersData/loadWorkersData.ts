@@ -1,26 +1,8 @@
 import { LOAD_WORKERS_DATA, LOAD_WORKERS_DATA_SUCCESS, LOAD_WORKERS_DATA_FAILED } from '../../constants'
+import { WorkersData } from '../../../types/worker'
+import { FilterParameters } from '../../../types/filterParameters'
 
-type filterParameters = {
-	positionType?: string,
-	sortingType?: string,
-	time?: string,
-}
-
-interface IWorkers {
-	data: {
-		avatar: string,
-		name: string,
-		placeNumber?: string,
-		positionType: string,
-		salary: number,
-		time: string,
-		__v: number,
-		_id: string,
-	}[]	
-}
-
-
-const loadWorkersData = (page:number = 1, filterParameters:filterParameters = {}) => ({
+const loadWorkersData = (page = 1, filterParameters:FilterParameters = {}) => ({
 	type: LOAD_WORKERS_DATA,
 	payload: {
 		page,
@@ -28,14 +10,12 @@ const loadWorkersData = (page:number = 1, filterParameters:filterParameters = {}
 	}
 })
 
-export const loadWorkersDataFailed = (error: string) => {
-	return {
-		type: LOAD_WORKERS_DATA_FAILED,
-		payload: error
-	}
-}
+export const loadWorkersDataFailed = (error: string) => ({
+	type: LOAD_WORKERS_DATA_FAILED,
+	payload: error
+})
 
-export const loadWorkersDataSuccess = (data: IWorkers) => ({
+export const loadWorkersDataSuccess = (data: WorkersData) => ({
 	type: LOAD_WORKERS_DATA_SUCCESS,
 	payload: data
 })

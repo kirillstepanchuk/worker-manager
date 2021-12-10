@@ -14,7 +14,7 @@ module.exports = (env) => {
 	const isProd = env === 'prod'
 
 	return {
-		entry: './src/index.js',
+		entry: './src/index.tsx',
 		module: {
 			rules: [
 				{
@@ -38,7 +38,7 @@ module.exports = (env) => {
 			]
 		},
 		resolve: {
-			extensions: ['.tsx', '.ts', '.jsx', '.js']
+			extensions: ['', '.tsx', '.ts', '.jsx', '.js']
 		},
 		plugins: [
 			new CleanWebpackPlugin(),

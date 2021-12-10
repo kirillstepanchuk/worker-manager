@@ -3,12 +3,13 @@
 		"browser": true,
 		"es2021": true
 	},
-	"parser": "@babel/eslint-parser",
+	"parser": "@typescript-eslint/parser",
 	"extends": [
 		"airbnb",
 		"airbnb-base",
-		"plugin:react/recommended",
 		"standard",
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/recommended",
 		"plugin:react/jsx-runtime",
 		"plugin:testing-library/react",
 		"plugin:jest/all"
@@ -22,7 +23,7 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"plugins": ["react", "jest"],
+	"plugins": ["react", "jest", "typescript"],
 	"rules": {
 		"quotes": [0, "single"],
 		"indent": ["error", "tab"],
@@ -32,7 +33,7 @@
 		"react/jsx-uses-vars": "error",
 		"react/jsx-indent": ["error", "tab"],
 		"react/jsx-indent-props": ["error", "tab"],
-		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+		"react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
 		"linebreak-style": ["error", "windows"],
 		"func-names": ["error", "as-needed"],
 		"no-console": "off",
@@ -46,7 +47,22 @@
 		"import/no-extraneous-dependencies": [
 			"error",
 			{ "devDependencies": true }
-		]
+		],
+		"react/no-children-prop": "off",
+		"@typescript-eslint/ban-types": [
+			"error",
+			{
+				"extendDefaults": true,
+				"types": {
+				"{}": false
+				}
+			}
+		],
+		"react/jsx-props-no-spreading": "off",
+		"react/display-name": "off",
+		"default-param-last": "off",
+		"max-len": "off",
+		"@typescript-eslint/no-var-requires": "off",
 	},
 	"settings": {
 		"react": {
@@ -54,6 +70,11 @@
 		},
 		"jest": {
 			"version": "latest"
+		},
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".jsx", ".ts", ".tsx"]
+			}
 		}
 	}
 }

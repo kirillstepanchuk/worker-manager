@@ -1,56 +1,35 @@
-import React, { useEffect, FC } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react'
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
 
-import WorkerCard from '../WorkerCard/WorkerCard';
-import loadWorkersData from '../../../store/actions/loadWorkersData/loadWorkersData';
-import { Wrapper, TextWrapper } from './style';
+import WorkerCard from '../WorkerCard/WorkerCard'
+import loadWorkersData from '../../../store/actions/loadWorkersData/loadWorkersData'
+import { Wrapper, TextWrapper } from './style'
+import { Worker } from '../../../types/worker'
 
-interface IProps {
-	workers: {
-		data: {
-			avatar: string,
-			name: string,
-			placeNumber?: string,
-			positionType: string,
-			salary: number,
-			time: string,
-			__v: number,
-			_id: string,
-		}[]
-	},
-	loadWorkersData: () => void,
-}
+const WorkerCardList = function () {
+	const dispatch = useDispatch()
+	const workers:Worker[] = useSelector((state:RootStateOrAny) => state.workers.data)
 
-const WorkerCardList: FC<IProps> = ({ workers, loadWorkersData }) => {
 	useEffect(() => {
-		loadWorkersData();
-	}, []);
+		dispatch(loadWorkersData())
+	}, [])
 
 	return (
 		<Wrapper>
-			{workers.data.length ? (
-				workers.data.map((worker) => {
-					return (
+			{workers.length
+				? (
+					workers.map((worker) => (
 						<WorkerCard
 							key={worker._id}
 							worker={worker}
 						/>
-					);
-				})
-			) : (
-				<TextWrapper>Сотрудников на этой странице нет =(</TextWrapper>
-			)}
+					))
+				)
+				: (
+					<TextWrapper>Сотрудников на этой странице нет =(</TextWrapper>
+				)}
 		</Wrapper>
-	);
-};
+	)
+}
 
-const mapStateToProps = (state: any) => ({
-	workers: state.workers,
-	filterPrameters: state.filterPrameters,
-});
-
-const mapDispatchToProps = (dispatch: any) => ({
-	loadWorkersData: () => dispatch(loadWorkersData()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(WorkerCardList);
+export default WorkerCardList

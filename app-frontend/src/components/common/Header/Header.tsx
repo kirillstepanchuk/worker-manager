@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react'
+import { useLocation } from 'react-router-dom'
 
-import { HeaderContainer, Heading, Link } from './style';
+import { HeaderContainer, Heading, Link } from './style'
 
-const Header: FC = () => {
-	const location = useLocation();
+const Header = function () {
+	const location = useLocation()
 
 	return (
 		<HeaderContainer>
@@ -13,13 +13,13 @@ const Header: FC = () => {
 			<Link
 				to={{
 					pathname: `/worker-add`,
-					state: { background: location },
+					state: { background: location }
 				}}
 			>
 				Добавить
 			</Link>
 		</HeaderContainer>
-	);
-};
+	)
+}
 
-export default Header;
+export default Header

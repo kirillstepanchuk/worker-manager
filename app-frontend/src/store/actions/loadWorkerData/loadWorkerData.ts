@@ -1,17 +1,5 @@
+import { WorkerData } from '../../../types/worker'
 import { LOAD_WORKER_DATA, LOAD_WORKER_DATA_SUCCESS, LOAD_WORKER_DATA_FAILED } from '../../constants'
-
-interface IWorker {
-	data: {
-		avatar: string,
-		name: string,
-		placeNumber?: string,
-		positionType: string,
-		salary: number,
-		time: string,
-		__v: number,
-		_id: string,
-	}
-}
 
 const loadWorkerData = (id: string) => ({
 	type: LOAD_WORKER_DATA,
@@ -23,7 +11,7 @@ export const loadWorkerDataFailed = (error: string) => ({
 	payload: error
 })
 
-export const loadWorkerDataSuccess = (data: IWorker) => ({
+export const loadWorkerDataSuccess = (data: WorkerData) => ({
 	type: LOAD_WORKER_DATA_SUCCESS,
 	payload: data
 })

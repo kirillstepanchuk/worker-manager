@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Link as RouterLink } from 'react-router-dom';
+import styled from 'styled-components'
+import { Link as RouterLink } from 'react-router-dom'
 
 export const HeaderContainer = styled.header`
 	width: 280px;
@@ -26,13 +26,13 @@ export const HeaderContainer = styled.header`
 	@media (min-width: 1300px) {
 		width: 1260px;
 	}
-`;
+`
 
 export const Heading = styled.h1`
 	color: #ffffff;
 	font-size: 20px;
 	font-weight: 400;
-`;
+`
 
 export const Link = styled(RouterLink)`
 	text-decoration: none;
@@ -49,4 +49,4 @@ export const Link = styled(RouterLink)`
 
 		transition: 0.5s;
 	}
-`;
+`

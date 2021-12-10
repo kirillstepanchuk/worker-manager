@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components'
 
 export const Modal = styled.div`
 	position: fixed;
@@ -13,7 +13,7 @@ export const Modal = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-`;
+`
 
 export const ModalContent = styled.div`
 	position: relative;
@@ -23,7 +23,7 @@ export const ModalContent = styled.div`
 	background-color: #ffffff;
 	border: 1px solid #b9c4c9;
 	border-radius: 20px;
-`;
+`
 
 export const CloseButton = styled.button`
 	position: absolute;
@@ -34,4 +34,4 @@ export const CloseButton = styled.button`
 	border: none;
 
 	cursor: pointer;
-`;
+`

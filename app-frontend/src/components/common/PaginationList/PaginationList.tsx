@@ -1,26 +1,25 @@
-import React, { useState, ChangeEvent, SyntheticEvent } from 'react';
-import Pagination from '@mui/material/Pagination';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, ChangeEvent } from 'react'
+import Pagination from '@mui/material/Pagination'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { PaginationContainer } from './style';
-import loadWorkersData from '../../../store/actions/loadWorkersData/loadWorkersData';
-import root from '../../../store/reducers/root.js';
+import { PaginationContainer } from './style'
+import loadWorkersData from '../../../store/actions/loadWorkersData/loadWorkersData'
+import root from '../../../store/reducers/root'
 
 type RootState = ReturnType<typeof root>;
 
-const PaginationList = () => {
-	const [currentPage, setCurrentPage] = useState(1);
+const PaginationList = function () {
+	const [currentPage, setCurrentPage] = useState(1)
 
-	const dispatch = useDispatch();
+	const dispatch = useDispatch()
 	const filterParameters = useSelector(
-		(state: RootState) => state.filterParameters.data
-	);
+		(state: RootState) => state.filterParameters
+	)
 
-	const handleChange = (event: ChangeEvent<HTMLButtonElement>, value: number) => {
-		console.log('event: ', event);
-		setCurrentPage(value);
-		dispatch(loadWorkersData(value, filterParameters));
-	};
+	const handleChange = (evt: ChangeEvent<any>, value: number) => {
+		setCurrentPage(value)
+		dispatch(loadWorkersData(value, filterParameters))
+	}
 
 	return (
 		<PaginationContainer>
@@ -32,7 +31,7 @@ const PaginationList = () => {
 				onChange={handleChange}
 			/>
 		</PaginationContainer>
-	);
-};
+	)
+}
 
-export default PaginationList;
+export default PaginationList

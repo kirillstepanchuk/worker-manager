@@ -1,12 +1,7 @@
 import { SET_FILTER_PARAMETERS } from '../../constants'
+import { FilterParameters } from '../../../types/filterParameters'
 
-interface IFilterParameters {
-	positionType?: string, 
-	sortingType?: string, 
-	time?: string
-}
-
-const setFilterParameters = (filterParameters: IFilterParameters) => ({
+const setFilterParameters = (filterParameters: FilterParameters) => ({
 	type: SET_FILTER_PARAMETERS,
 	payload: filterParameters
 })

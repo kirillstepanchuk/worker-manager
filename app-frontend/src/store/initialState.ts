@@ -1,4 +1,6 @@
-const initialState = {
+import { InitialState } from '../types/initialState'
+
+const initialState: InitialState = {
 	workers: {
 		data: []
 	},
