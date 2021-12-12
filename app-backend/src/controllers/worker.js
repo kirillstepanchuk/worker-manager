@@ -42,7 +42,13 @@ const handleGetAllWorkers = async (req, res) => {
     const sortingType = req.query.sortingType === 'undefined' ? 'nameSorting' : req.query.sortingType;
     const { time } = req.query;
 
-    const result = await getFilteredWorkers(pageLimit, currentPage, positionType, sortingType, time);
+    const result = await getFilteredWorkers(
+      pageLimit,
+      currentPage,
+      positionType,
+      sortingType,
+      time,
+    );
 
     res.status(HttpStatusCode.OK).send(result);
   } catch (error) {

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --env mode=dev --open --hot",
-    "build": "webpack --env mode=prod",
+    "start": "webpack-dev-server --config ./webpacks/webpack.dev.js --open --hot",
+    "build": "webpack --config ./webpacks/webpack.prod.js",
     "lint": "eslint ./ --fix",
     "format": "prettier -w ."
   },

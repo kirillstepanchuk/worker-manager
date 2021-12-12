@@ -14,7 +14,7 @@ module.exports = (env) => {
   const isProd = env === 'prod';
 
   return {
-    entry: './src/index.js',
+    entry: './src/index.jsx',
     module: {
       rules: [
         {

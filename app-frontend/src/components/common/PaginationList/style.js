@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const PaginationContainer = styled.div`
+const PaginationContainer = styled.div`
     width: 280px;
 
     display: flex;
@@ -16,3 +16,5 @@ export const PaginationContainer = styled.div`
         width: 1260px;
     }
 `;
+
+export default PaginationContainer;
