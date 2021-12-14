@@ -32,7 +32,7 @@ const startServer = async () => {
         useUnifiedTopology: true,
         useCreateIndex: true,
       },
-      (error) => {
+      (error: any) => {
         if (error) {
           console.log('some error happened', error);
         }
@@ -44,8 +44,10 @@ const startServer = async () => {
       console.info(`server started on port ${APP_PORT}!`);
     });
   } catch (error) {
-    console.log(`the ${error} happend with server`);
-    console.log(`it means ${error.message}`);
+    if (error instanceof Error) {
+      console.log(`the ${error} happend with server`);
+      console.log(`it means ${error.message}`);
+    }
   }
 };
 

@@ -1,5 +1,17 @@
 const express = require('express');
 const multer = require('multer');
+import { Request } from 'express';
+
+interface ImageFileData {
+  fieldname: string,
+  originalname: string,
+  encoding: string,
+  mimetype: string,
+  destination: string,
+  filename: string,
+  path: string,
+  size: number
+}
 
 const {
   handleAddWorker,
@@ -11,15 +23,15 @@ const {
 const router = express();
 
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
+  destination: (req: Request, file: ImageFileData, cb: (a: null, b: string)=> void) => {
     cb(null, './src/uploads/');
   },
-  filename: (req, file, cb) => {
+  filename: (req: Request, file: ImageFileData, cb: (a: null, b: string)=> void) => {
     cb(null, file.originalname);
   },
 });
 
-const fileFilter = (req, file, cb) => {
+const fileFilter = (req: Request, file: ImageFileData, cb: (a: null, b: boolean)=> void) => {
   if (['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/svg'].includes(file.mimetype)) {
     cb(null, true);
   } else {

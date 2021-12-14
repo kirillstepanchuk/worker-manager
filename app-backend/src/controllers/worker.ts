@@ -1,11 +1,24 @@
+import { Request, Response } from 'express';
 const { HttpStatusCode } = require('../constants');
 const {
   createWorker, updateWorker, getWorker, getFilteredWorkers,
-} = require('../models/Worker');
+} = require('../models/Worker.ts');
 
-const handleAddWorker = async (req, res) => {
+interface ImageFileData {
+  fieldname: string,
+  originalname: string,
+  encoding: string,
+  mimetype: string,
+  destination: string,
+  filename: string,
+  path: string,
+  size: number
+}
+
+const handleAddWorker = async (req: Request, res: Response) => {
   try {
-    const filedata = req.file;
+    //@ts-ignore
+    const filedata = req.file as ImageFileData;
     const result = await createWorker({ ...req.body, avatar: filedata.filename });
 
     res.status(HttpStatusCode.OK).send(result);
@@ -14,7 +27,7 @@ const handleAddWorker = async (req, res) => {
   }
 };
 
-const handleUpdateWorker = async (req, res) => {
+const handleUpdateWorker = async (req: Request, res: Response) => {
   try {
     const result = await updateWorker(req.params.id, req.body);
 
@@ -24,7 +37,7 @@ const handleUpdateWorker = async (req, res) => {
   }
 };
 
-const handleGetWorker = async (req, res) => {
+const handleGetWorker = async (req: Request, res: Response) => {
   try {
     const result = await getWorker(req.params.id);
 
@@ -34,7 +47,7 @@ const handleGetWorker = async (req, res) => {
   }
 };
 
-const handleGetAllWorkers = async (req, res) => {
+const handleGetAllWorkers = async (req: Request, res: Response) => {
   try {
     const pageLimit = 8;
     const currentPage = Number(req.query.pageNumber) || 1;
@@ -42,7 +55,13 @@ const handleGetAllWorkers = async (req, res) => {
     const sortingType = req.query.sortingType === 'undefined' ? 'nameSorting' : req.query.sortingType;
     const { time } = req.query;
 
-    const result = await getFilteredWorkers(pageLimit, currentPage, positionType, sortingType, time);
+    const result = await getFilteredWorkers(
+      pageLimit,
+      currentPage,
+      positionType,
+      sortingType,
+      time,
+    );
 
     res.status(HttpStatusCode.OK).send(result);
   } catch (error) {
@@ -50,8 +69,9 @@ const handleGetAllWorkers = async (req, res) => {
   }
 };
 
-const handleUploadPhoto = async (req, res) => {
+const handleUploadPhoto = async (req: Request, res: Response) => {
   try {
+    //@ts-ignore
     const filedata = req.file;
 
     const result = await updateWorker(req.query.id, { avatar: filedata.filename });
