@@ -39,9 +39,5 @@ module.exports = (env) => {
         minify: isProd && minifyHtmlPluginParameters,
       }),
     ],
-    // eslint: {
-    //   configFile: '../.eslintrc.js',
-    //   emitWarning: true,
-    // },
   };
 };

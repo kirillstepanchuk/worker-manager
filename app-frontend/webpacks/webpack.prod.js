@@ -14,6 +14,7 @@ module.exports = merge(common('prod'), {
     splitChunks: {
       chunks: 'all',
     },
+    minmize: true,
     minimizer: [
       new TerserPlugin(),
     ],
