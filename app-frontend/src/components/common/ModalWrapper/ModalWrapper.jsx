@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { grey } from '@mui/material/colors';
 import CloseIcon from '@mui/icons-material/Close';
 import PropTypes from 'prop-types';

@@ -3,7 +3,7 @@ import Pagination from '@mui/material/Pagination';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { PaginationContainer } from './style'
+import PaginationContainer from './style'
 import loadWorkersData from '../../../store/actions/loadWorkersData/loadWorkersData';
 
 const PaginationList = () => {
@@ -36,4 +36,3 @@ PaginationList.propTypes = {
 }
 
 export default PaginationList
-

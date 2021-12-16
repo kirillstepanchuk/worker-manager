@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix --ext .js,.jsx ."
+    "start": "webpack-dev-server --config ./webpacks/webpack.dev.js --open --hot",
+    "build": "webpack --config ./webpacks/webpack.prod.js",
+    "lint": "eslint ./ --fix",
+    "format": "prettier -w ."
   },
-  "author": "Kirill Stepanchuk <kirill.steapnchuk.96@mail.ru>",
+  "author": "Kirill Stepanchuk <kirill.stepanchuk.96@mail.ru>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -18,18 +18,28 @@
     "@babel/preset-react": "^7.16.0",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
+    "@babel/eslint-parser": "^7.16.3",
     "babel-loader": "^8.2.3",
+    "compression-webpack-plugin": "^9.0.1",
     "css-loader": "^6.5.1",
     "eslint": "^8.2.0",
-    "eslint-plugin-react": "^7.26.1",
-    "html-webpack-plugin": "^5.5.0",
-    "redux-devtools-extension": "^2.13.9",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-config-airbnb": "^19.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.62.2",
     "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.4.0"
+    "webpack-bundle-analyzer": "^4.5.0",
+    "terser-webpack-plugin": "^5.2.5",
+    "clean-webpack-plugin": "^4.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack-dev-server": "^4.4.0",
+    "webpack-merge": "^5.8.0"
   },
-  "dependencies": {
+  "dependencies": {    
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@mui/icons-material": "^5.1.0",

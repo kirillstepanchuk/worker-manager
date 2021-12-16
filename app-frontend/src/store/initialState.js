@@ -1,13 +1,13 @@
 const initialState = {
-	workers: {
-		data: [],
-	},
-	worker: {
-		data: {},
-	},
-	filterParameters: {
-		data: {},
-	},
+  workers: {
+    data: [],
+  },
+  worker: {
+    data: {},
+  },
+  filterParameters: {
+    data: {},
+  },
 };
 
 export default initialState;
