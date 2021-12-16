@@ -1,24 +1,14 @@
 import { Request, Response } from 'express';
+import { ImageFileData } from '../types/ImageFileData';
+
 const { HttpStatusCode } = require('../constants');
 const {
   createWorker, updateWorker, getWorker, getFilteredWorkers,
-} = require('../models/Worker.ts');
+} = require('../models/Worker');
 
-interface ImageFileData {
-  fieldname: string,
-  originalname: string,
-  encoding: string,
-  mimetype: string,
-  destination: string,
-  filename: string,
-  path: string,
-  size: number
-}
-
-const handleAddWorker = async (req: Request, res: Response) => {
+const handleAddWorker = async (req: Request & { file: ImageFileData }, res: Response) => {
   try {
-    //@ts-ignore
-    const filedata = req.file as ImageFileData;
+    const filedata = req.file;
     const result = await createWorker({ ...req.body, avatar: filedata.filename });
 
     res.status(HttpStatusCode.OK).send(result);
@@ -69,9 +59,8 @@ const handleGetAllWorkers = async (req: Request, res: Response) => {
   }
 };
 
-const handleUploadPhoto = async (req: Request, res: Response) => {
+const handleUploadPhoto = async (req: Request & { file: ImageFileData }, res: Response) => {
   try {
-    //@ts-ignore
     const filedata = req.file;
 
     const result = await updateWorker(req.query.id, { avatar: filedata.filename });

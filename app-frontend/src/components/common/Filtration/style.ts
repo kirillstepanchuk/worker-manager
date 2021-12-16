@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.form`
     color: #ffffff;
@@ -18,31 +18,31 @@ export const Container = styled.form`
     @media (min-width: 1300px) {
         width: 1260px;
     }
-`
+`;
 
 export const ParametersContainer = styled.div`
     margin-bottom: 15px;
-`
+`;
 
 export const Title = styled.span`
     color: #B9C4C9;
     font-size: 20px;
-`
+`;
 
 export const ButtonContainer = styled.div`
     display: flex;
     justify-content: center;
-`
+`;
 
 export const FormLabel = styled.span`
     margin-top: 10px
-`
+`;
 
 export const controlProps = {
-	sx: {
-		color: '#ffffff',
-		'&.Mui-checked': {
-			color: '#ffffff'
-		}
-	}
-}
+  sx: {
+    color: '#ffffff',
+    '&.Mui-checked': {
+      color: '#ffffff',
+    },
+  },
+};

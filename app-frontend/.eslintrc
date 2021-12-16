@@ -6,70 +6,40 @@
 	"parser": "@typescript-eslint/parser",
 	"extends": [
 		"airbnb",
-		"airbnb-base",
-		"standard",
-		"plugin:react/recommended",
-		"plugin:@typescript-eslint/recommended",
-		"plugin:react/jsx-runtime",
-		"plugin:testing-library/react",
-		"plugin:jest/all"
+		"airbnb-typescript"
 	],
 	"parserOptions": {
-		"requireConfigFile": false,
 		"presets": ["@babel/preset-react"],
 		"ecmaFeatures": {
 			"jsx": true
 		},
-		"ecmaVersion": "latest",
-		"sourceType": "module"
+		"project": "**/tsconfig.json"
 	},
-	"plugins": ["react", "jest", "typescript"],
+	"plugins": ["react", "typescript"],
 	"rules": {
-		"quotes": [0, "single"],
-		"indent": ["error", "tab"],
-		"no-tabs": 0,
-		"react/prop-types": 0,
-		"react/jsx-uses-react": "error",
-		"react/jsx-uses-vars": "error",
-		"react/jsx-indent": ["error", "tab"],
-		"react/jsx-indent-props": ["error", "tab"],
-		"react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
-		"linebreak-style": ["error", "windows"],
-		"func-names": ["error", "as-needed"],
-		"no-console": "off",
 		"no-underscore-dangle": ["error", { "allow": ["_id"] }],
-		"no-param-reassign": "off",
-		"global-require": "off",
-		"import/extensions": "off",
-		"jest/require-hook": "off",
-		"import/prefer-default-export": "off",
-		"import/no-dynamic-require": "off",
-		"import/no-extraneous-dependencies": [
-			"error",
-			{ "devDependencies": true }
-		],
-		"react/no-children-prop": "off",
-		"@typescript-eslint/ban-types": [
-			"error",
-			{
-				"extendDefaults": true,
-				"types": {
-				"{}": false
-				}
-			}
-		],
-		"react/jsx-props-no-spreading": "off",
-		"react/display-name": "off",
-		"default-param-last": "off",
-		"max-len": "off",
-		"@typescript-eslint/no-var-requires": "off",
+		"@typescript-eslint/default-param-last": "off"
 	},
+	"overrides": [
+    {
+      "files": ["./**/webpack.**.js"],
+      "rules": {
+        "import/no-extraneous-dependencies": 0,
+        "@typescript-eslint/no-var-requires": 0,
+        "@typescript-eslint/explicit-function-return-type": 0
+      }
+    },
+    {
+      "files": [".eslintrc"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": 0,
+        "@typescript-eslint/explicit-function-return-type": 0
+      }
+    }
+  ],
 	"settings": {
 		"react": {
 			"version": "detect"
-		},
-		"jest": {
-			"version": "latest"
 		},
 		"import/resolver": {
 			"node": {

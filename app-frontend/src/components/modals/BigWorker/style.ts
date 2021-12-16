@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const CardContainer = styled.div`
     position: relative;
@@ -16,30 +16,30 @@ export const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-`
+`;
 
 export const NameTitle = styled.span`
     font-size: 24px;
     font-weight: 600;
 
     margin-top: 10px;
-`
+`;
 
 export const TypeTitle = styled.span`
     color: #B9C4C9;
     font-size: 20px;
-`
+`;
 
 export const ParameterHeading = styled.span`
     font-size: 20px;
 
     margin-top: 10px;
-`
+`;
 
 export const ParameterValue = styled.span`
     font-size: 16px;
     color: #B9C4C9 ;
-`
+`;
 
 export const LinkS = styled.a`
     position: absolute;
@@ -58,4 +58,4 @@ export const LinkS = styled.a`
         border-color: #000000;
         transition: .5s;
     }
-`
+`;

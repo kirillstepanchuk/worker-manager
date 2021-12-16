@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { Link as RouterLink } from 'react-router-dom'
+import styled from 'styled-components';
+import { Link as RouterLink } from 'react-router-dom';
 
 export const CardContainer = styled.div`
     position: relative;
@@ -24,26 +24,26 @@ export const CardContainer = styled.div`
     @media (min-width: 1300px) {
         width: 280px;
     }
-`
+`;
 
 export const NameTitle = styled.span`
     font-size: 18px;
     font-weight: 600;
 
     margin-top: 10px;
-`
+`;
 
 export const TypeTitle = styled.span`
     color: #B9C4C9;
-`
+`;
 
 export const ParameterHeading = styled.span`
     margin-top: 10px;
-`
+`;
 
 export const ParameterValue = styled.span`
     color: #B9C4C9;
-`
+`;
 
 export const Link = styled(RouterLink)`
     text-decoration: none;
@@ -59,7 +59,7 @@ export const Link = styled(RouterLink)`
         border-color: #000000;
         transition: .5s;
     }
-`
+`;
 
 export const LinkConteiner = styled.div`
     position: absolute;
@@ -69,4 +69,4 @@ export const LinkConteiner = styled.div`
 
     display: flex;
     justify-content: space-between;;
-`
+`;

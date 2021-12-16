@@ -1,25 +1,25 @@
-import React from 'react'
-import { useLocation } from 'react-router-dom'
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 
-import { HeaderContainer, Heading, Link } from './style'
+import { HeaderContainer, Heading, Link } from './style';
 
 const Header = function () {
-	const location = useLocation()
+  const location = useLocation();
 
-	return (
-		<HeaderContainer>
-			<Heading>Сотрудники</Heading>
+  return (
+    <HeaderContainer>
+      <Heading>Сотрудники</Heading>
 
-			<Link
-				to={{
-					pathname: `/worker-add`,
-					state: { background: location }
-				}}
-			>
-				Добавить
-			</Link>
-		</HeaderContainer>
-	)
-}
+      <Link
+        to={{
+          pathname: '/worker-add',
+          state: { background: location },
+        }}
+      >
+        Добавить
+      </Link>
+    </HeaderContainer>
+  );
+};
 
-export default Header
+export default Header;

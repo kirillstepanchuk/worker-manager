@@ -1,13 +1,13 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 
-import workers from './workers'
-import worker from './worker'
-import filterParameters from './filterParameters'
+import workers from './workers';
+import worker from './worker';
+import filterParameters from './filterParameters';
 
 const root = combineReducers({
-	workers,
-	worker,
-	filterParameters
-})
+  workers,
+  worker,
+  filterParameters,
+});
 
-export default root
+export default root;

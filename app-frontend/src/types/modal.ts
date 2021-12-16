@@ -1,5 +1,5 @@
-import { ReactChild, ReactChildren } from 'react'
+import { ReactChild, ReactChildren } from 'react';
 
 export interface ModalProps {
-	children: ReactChild | ReactChildren
+  children: ReactChild | ReactChildren
 }

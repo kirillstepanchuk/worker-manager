@@ -1,17 +1,8 @@
+import { Request } from 'express';
+import { ImageFileData } from '../types/ImageFileData';
+
 const express = require('express');
 const multer = require('multer');
-import { Request } from 'express';
-
-interface ImageFileData {
-  fieldname: string,
-  originalname: string,
-  encoding: string,
-  mimetype: string,
-  destination: string,
-  filename: string,
-  path: string,
-  size: number
-}
 
 const {
   handleAddWorker,

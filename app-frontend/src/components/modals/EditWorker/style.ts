@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const CardContainer = styled.form`
     width: 500px;
@@ -12,13 +12,13 @@ export const CardContainer = styled.form`
 
     display: flex;
     flex-direction: column;
-`
+`;
 
 export const TopInfoContainer = styled.div`
     display: flex;
     align-items: flex-end;
-`
+`;
 
 export const FileInput = styled.input`
     display: none;
-`
+`;

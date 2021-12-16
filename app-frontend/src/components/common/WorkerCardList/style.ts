@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
     width: 280px;
@@ -16,8 +16,8 @@ export const Wrapper = styled.div`
     @media (min-width: 1300px) {
         width: 1260px;
     }
-`
+`;
 
 export const TextWrapper = styled.div`
     margin: 0 auto;
-`
+`;

@@ -1,15 +1,15 @@
-import { InitialState } from '../types/initialState'
+import { InitialState } from '../types/initialState';
 
 const initialState: InitialState = {
-	workers: {
-		data: []
-	},
-	worker: {
-		data: {}
-	},
-	filterParameters: {
-		data: {}
-	}
-}
+  workers: {
+    data: [],
+  },
+  worker: {
+    data: {},
+  },
+  filterParameters: {
+    data: {},
+  },
+};
 
-export default initialState
+export default initialState;

@@ -1,55 +1,55 @@
-import { FilterParameters } from './filterParameters'
+import { FilterParameters } from './filterParameters';
 
 export interface Worker {
-	avatar: string,
-	name: string,
-	placeNumber?: string,
-	positionType: string,
-	salary: number,
-	time: string,
-	__v: number,
-	_id: string
+  avatar: string,
+  name: string,
+  placeNumber?: string,
+  positionType: string,
+  salary: number,
+  time: string,
+  __v: number,
+  _id: string
 }
 
 export interface WorkerEdit {
-    avatar?: string,
-	name?: string,
-	placeNumber?: string,
-	positionType?: string,
-	salary?: number,
-	time?: string
+  avatar?: string,
+  name?: string,
+  placeNumber?: string,
+  positionType?: string,
+  salary?: number,
+  time?: string
 }
 
 export interface WorkerEditData {
-    data: WorkerEdit
+  data: WorkerEdit
 }
 
 export interface WorkerData {
-    data: Worker
+  data: Worker
 }
 
 export interface WorkerProps {
-    worker: Worker
+  worker: Worker
 }
 
 export interface WorkerAction {
-	type: string,
-	payload?: Worker
+  type: string,
+  payload?: Worker
 }
 
 export interface WorkerIdAction {
-    type: string,
-    id: string
+  type: string,
+  id: string
 }
 
 export interface WorkersData {
-    data: Worker[]
+  data: Worker[]
 }
 
 export interface WorkersFiltrateAction {
-    type: string,
-	payload: {
-		page: number,
-		filterParameters: FilterParameters
-	}
+  type: string,
+  payload: {
+    page: number,
+    filterParameters: FilterParameters
+  }
 }

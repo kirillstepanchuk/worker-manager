@@ -4,13 +4,16 @@
     "commonjs": true,
     "es2021": true
   },
+	"parser": "@typescript-eslint/parser",
   "extends": [
     "airbnb-base",
-    "airbnb"
+    "airbnb-base-typescript"
   ],
   "parserOptions": {
-    "ecmaVersion": "latest"
+    "project": "**/tsconfig.json"
   },
   "rules": {
-  }
+    "import/no-import-module-exports": "off"
+  },
+  "plugins": ["typescript"]
 }
