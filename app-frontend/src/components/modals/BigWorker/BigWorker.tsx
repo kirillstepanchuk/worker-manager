@@ -1,9 +1,6 @@
-import React, { useEffect } from 'react';
-import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import React, { FC } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import loadWorkerData from '../../../store/actions/loadWorkerData/loadWorkerData';
 import {
   CardContainer,
   NameTitle,
@@ -12,19 +9,16 @@ import {
   ParameterValue,
 } from './style';
 import { API_URL } from '../../../store/constants';
-import ModalWrapper from '../../common/ModalWrapper/ModalWrapper';
+import ModalWrapper from '../../../containers/common/ModalWrapper/ModalWrapperContainer';
 import { Worker } from '../../../types/worker';
 
-const BigWorker = function () {
-  const { id } = useParams();
+interface BigWorkerProps {
+  worker: Worker
+}
 
-  const dispatch = useDispatch();
-  const worker:Worker = useSelector((state:RootStateOrAny) => state.worker.data);
-
-  useEffect(() => {
-    dispatch(loadWorkerData(id as string));
-  }, []);
-
+const BigWorker: FC<BigWorkerProps> = function ({
+  worker,
+}) {
   return (
     <ModalWrapper>
       <CardContainer>

@@ -7,9 +7,9 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { GlobalStyle, Wrapper } from './style';
 
 const Workers = lazy(() => import('../pages/Workers/Workers'));
-const BigWorker = lazy(() => import('../modals/BigWorker/BigWorker'));
-const EditWorker = lazy(() => import('../modals/EditWorker/EditWorker'));
-const AddWorker = lazy(() => import('../modals/AddWorker/AddWorker'));
+const BigWorker = lazy(() => import('../../containers/modals/BigWorker/BigWorkerContainer'));
+const EditWorker = lazy(() => import('../../containers/modals/EditWorker/EditWorkerContainer'));
+const AddWorker = lazy(() => import('../../containers/modals/AddWorker/AddWorkerContainer'));
 
 const App = function () {
   const location = useLocation();

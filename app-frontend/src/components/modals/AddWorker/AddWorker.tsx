@@ -1,7 +1,6 @@
 import React, {
-  ChangeEvent, ForwardedRef, SyntheticEvent, useState,
+  ChangeEvent, ForwardedRef, SyntheticEvent, FC,
 } from 'react';
-import axios from 'axios';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -15,21 +14,39 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 
 import { CardContainer, TopInfoContainer, FileInput } from './style';
-import { API_URL } from '../../../store/constants';
-import ModalWrapper from '../../common/ModalWrapper/ModalWrapper';
+import ModalWrapper from '../../../containers/common/ModalWrapper/ModalWrapperContainer';
 
-const AddWorker = function () {
-  const [file, setFile] = useState<File | null>(null);
-  const [name, setName] = useState('');
-  const [salary, setSalary] = useState('');
-  const [placeNumber, setPlaceNumber] = useState('');
-  const [isAdministration, setIsAdministration] = useState(true);
-  const [openAlert, setOpenAlert] = useState(false);
+interface AddWorkerProps {
+  onSubmitHandler: (evt: SyntheticEvent) => Promise<void>,
+  onChangeFileHandler: (evt: ChangeEvent<HTMLInputElement>) => void,
+  file: File | null,
+  isAdministration: boolean,
+  setIsAdministration: (value: boolean) => void,
+  name: string,
+  setName: (value: string) => void,
+  salary: string,
+  setSalary: (value: string) => void,
+  placeNumber: string,
+  setPlaceNumber: (value: string) => void,
+  openAlert: boolean,
+  handleCloseAlert: () => void
+}
 
-  const handleCloseAlert = () => {
-    setOpenAlert(false);
-  };
-
+const AddWorker: FC<AddWorkerProps> = function ({
+  onSubmitHandler,
+  onChangeFileHandler,
+  file,
+  isAdministration,
+  setIsAdministration,
+  name,
+  setName,
+  salary,
+  setSalary,
+  placeNumber,
+  setPlaceNumber,
+  openAlert,
+  handleCloseAlert,
+}) {
   const Alert = React.forwardRef((props: AlertProps, ref: ForwardedRef<HTMLDivElement>) => (
     <MuiAlert
       elevation={6}
@@ -42,26 +59,6 @@ const AddWorker = function () {
       {props.children}
     </MuiAlert>
   ));
-
-  const onSubmitHandler = async (evt: SyntheticEvent) => {
-    evt.preventDefault();
-
-    const target = evt.target as HTMLFormElement;
-    const formData = new FormData(target);
-
-    await axios({
-      method: 'POST',
-      url: `${API_URL}/workers`,
-      data: formData,
-      withCredentials: true,
-    });
-    setOpenAlert(true);
-  };
-
-  const onChangeFileHandler = (evt: ChangeEvent<HTMLInputElement>) => {
-    const files = evt.currentTarget.files as FileList;
-    setFile(files[0]);
-  };
 
   return (
     <ModalWrapper>

@@ -1,7 +1,6 @@
 import React, {
-  useEffect, useState, SyntheticEvent, ChangeEvent,
+  SyntheticEvent, ChangeEvent, FC,
 } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -9,48 +8,26 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import axios from 'axios';
-import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 
-import loadWorkerData from '../../../store/actions/loadWorkerData/loadWorkerData';
-import { API_URL } from '../../../store/constants';
 import { CardContainer, TopInfoContainer } from './style';
-import editWorkerData from '../../../store/actions/editWorkerData/editWorkerData';
-import ModalWrapper from '../../common/ModalWrapper/ModalWrapper';
+import ModalWrapper from '../../../containers/common/ModalWrapper/ModalWrapperContainer';
 import { Worker } from '../../../types/worker';
 
-const EditWorker = function () {
-  const dispatch = useDispatch();
-  const worker:Worker = useSelector((state:RootStateOrAny) => state.worker.data);
+interface EditWorkerProps {
+  worker: Worker,
+  onSubmitHandler: (evt: SyntheticEvent) => Promise<void>,
+  isAdministration: boolean | undefined,
+  setIsAdministration: (value: boolean) => void,
+  editWorkerDataHandler: (evt: ChangeEvent<HTMLInputElement>) => void,
+}
 
-  const [isAdministration, setIsAdministration] = useState<boolean>();
-
-  const { id } = useParams();
-  const history = useHistory();
-
-  useEffect(() => {
-    dispatch(loadWorkerData(id as string));
-  }, []);
-
-  const onSubmitHandler = async (evt: SyntheticEvent) => {
-    evt.preventDefault();
-
-    const target = evt.target as HTMLFormElement;
-    const formData = Object.fromEntries(new FormData(target));
-
-    await axios({
-      method: 'PATCH',
-      url: `${API_URL}/workers/${worker._id}`,
-      data: formData,
-    });
-    history.goBack();
-  };
-
-  const editWorkerDataHandler = (evt: ChangeEvent<HTMLInputElement>) => {
-    const { target } = evt;
-    dispatch(editWorkerData({ [target.name]: target.type === 'number' ? +target.value : target.value }));
-  };
-
+const EditWorker: FC<EditWorkerProps> = function ({
+  worker,
+  onSubmitHandler,
+  isAdministration,
+  setIsAdministration,
+  editWorkerDataHandler,
+}) {
   return (
     <ModalWrapper>
       <CardContainer

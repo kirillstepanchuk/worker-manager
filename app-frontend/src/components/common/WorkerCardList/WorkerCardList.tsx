@@ -1,19 +1,16 @@
-import React, { useEffect } from 'react';
-import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
+import React, { FC } from 'react';
 
-import WorkerCard from '../WorkerCard/WorkerCard';
-import loadWorkersData from '../../../store/actions/loadWorkersData/loadWorkersData';
+import WorkerCard from '../../../containers/common/WorkerCard/WorkerCardContainer';
 import { Wrapper, TextWrapper } from './style';
 import { Worker } from '../../../types/worker';
 
-const WorkerCardList = function () {
-  const dispatch = useDispatch();
-  const workers:Worker[] = useSelector((state:RootStateOrAny) => state.workers.data);
+interface WorkerCardListProps {
+  workers: Worker[]
+}
 
-  useEffect(() => {
-    dispatch(loadWorkersData());
-  }, []);
-
+const WorkerCardList: FC<WorkerCardListProps> = function ({
+  workers,
+}) {
   return (
     <Wrapper>
       {workers.length

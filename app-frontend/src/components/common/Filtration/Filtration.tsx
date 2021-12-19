@@ -1,13 +1,10 @@
-import React, { useState, SyntheticEvent, ChangeEvent } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { ChangeEvent, SyntheticEvent, FC } from 'react';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
-import loadWorkersData from '../../../store/actions/loadWorkersData/loadWorkersData';
-import setFilterParameters from '../../../store/actions/setFilterParameters/setFilterParameters';
 import {
   Container,
   ParametersContainer,
@@ -17,23 +14,29 @@ import {
   controlProps,
 } from './style';
 
-const Filtration = function () {
-  const [isAdministration, setIsAdministration] = useState(false);
-  const [isAll, setIsAll] = useState(true);
-  const [workTimeValue, setWorkTimeValue] = useState('08:00 - 14:00');
-  const [lunchTimeValue, setLunchTimeValue] = useState('12:00 - 12:45');
+interface FiltrationProps {
+  onSubmitHandler: (evt: SyntheticEvent) => void,
+  isAll: boolean,
+  setIsAll: (value: boolean) => void,
+  isAdministration: boolean,
+  setIsAdministration: (value: boolean) => void,
+  workTimeValue: string,
+  setWorkTimeValue: (value: string) => void,
+  lunchTimeValue: string,
+  setLunchTimeValue: (value: string) => void
+}
 
-  const dispatch = useDispatch();
-
-  const onSubmitHandler = async (evt: SyntheticEvent) => {
-    evt.preventDefault();
-    const target = evt.target as HTMLFormElement;
-    const formData = Object.fromEntries(new FormData(target));
-
-    dispatch(setFilterParameters(formData));
-    dispatch(loadWorkersData(1, formData));
-  };
-
+const Filtration: FC<FiltrationProps> = function ({
+  onSubmitHandler,
+  isAll,
+  setIsAll,
+  isAdministration,
+  setIsAdministration,
+  workTimeValue,
+  setWorkTimeValue,
+  lunchTimeValue,
+  setLunchTimeValue,
+}) {
   return (
     <Container
       method="post"

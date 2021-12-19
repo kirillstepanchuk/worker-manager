@@ -28,10 +28,6 @@ export interface WorkerData {
   data: Worker
 }
 
-export interface WorkerProps {
-  worker: Worker
-}
-
 export interface WorkerAction {
   type: string,
   payload?: Worker

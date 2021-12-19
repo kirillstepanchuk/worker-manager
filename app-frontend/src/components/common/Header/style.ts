@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link as RouterLink } from 'react-router-dom';
 
-export const HeaderContainer = styled.header`
+export const HeaderWrapper = styled.header`
 height: 70px;
 width: 280px;
 

@@ -1,5 +1,4 @@
-import React, { useState, FC } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { FC } from 'react';
 
 import {
   CardContainer,
@@ -11,14 +10,21 @@ import {
   LinkConteiner,
 } from './style';
 import { API_URL } from '../../../store/constants';
-import { WorkerProps } from '../../../types/worker';
+import { Worker } from '../../../types/worker';
 
-const WorkerCard: FC<WorkerProps> = function ({ worker }) {
-  const [isAdministration] = useState(
-    worker.positionType === 'administration',
-  );
-  const location = useLocation();
+interface WorkerCardProps {
+  worker: Worker,
+  isAdministration: boolean,
+  location: {
+    pathname: string;
+  }
+}
 
+const WorkerCard: FC<WorkerCardProps> = function ({
+  worker,
+  isAdministration,
+  location,
+}) {
   return (
     <CardContainer>
       <img

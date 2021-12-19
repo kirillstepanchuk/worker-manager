@@ -1,13 +1,16 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { FC } from 'react';
 
-import { HeaderContainer, Heading, Link } from './style';
+import { HeaderWrapper, Heading, Link } from './style';
 
-const Header = function () {
-  const location = useLocation();
+interface HeaderProps {
+  location: {
+    pathname: string;
+  }
+}
 
+const Header: FC<HeaderProps> = function ({ location }) {
   return (
-    <HeaderContainer>
+    <HeaderWrapper>
       <Heading>Сотрудники</Heading>
 
       <Link
@@ -18,7 +21,7 @@ const Header = function () {
       >
         Добавить
       </Link>
-    </HeaderContainer>
+    </HeaderWrapper>
   );
 };
 

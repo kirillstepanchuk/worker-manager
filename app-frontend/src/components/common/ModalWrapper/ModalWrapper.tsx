@@ -1,10 +1,15 @@
-import React, { FC, MouseEvent } from 'react';
+import React, {
+  FC, MouseEvent, ReactChild, ReactChildren,
+} from 'react';
 import { useHistory } from 'react-router-dom';
 import { grey } from '@mui/material/colors';
 import CloseIcon from '@mui/icons-material/Close';
 
 import { Modal, ModalContent, CloseButton } from './style';
-import { ModalProps } from '../../../types/modal';
+
+interface ModalProps {
+  children: ReactChild | ReactChildren
+}
 
 const ModalWrapper: FC<ModalProps> = function ({ children }) {
   const history = useHistory();
