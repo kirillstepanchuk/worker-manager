@@ -29,6 +29,7 @@
 		"mongoose": "^5.12.5",
 		"multer": "^1.4.3",
 		"prettier": "^2.2.1",
+		"qs": "^6.10.2",
 		"stylelint": "^13.13.1",
 		"ts-loader": "^9.2.6",
 		"ts-node-dev": "^1.1.8",

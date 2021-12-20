@@ -25,16 +25,16 @@ const WorkerSchema = new Schema({
 
 const WorkerModel = model('Worker', WorkerSchema);
 
-const createWorker = (data: Worker) => WorkerModel.create(data);
+const createWorker = (data: Worker):Worker => WorkerModel.create(data);
 
-const getWorker = (workerId: string) => WorkerModel.findOne({ _id: workerId });
+const getWorker = (workerId: string):Worker => WorkerModel.findOne({ _id: workerId });
 
 const updateWorker = (
   id: string,
   data: WorkerEdit,
-) => WorkerModel.updateOne({ _id: id }, { ...data });
+):Worker => WorkerModel.updateOne({ _id: id }, { ...data });
 
-const getAllWorkes = () => WorkerModel.find({});
+const getAllWorkes = ():Worker[] => WorkerModel.find({});
 
 const getFilteredWorkers = (
   pageSize: number,
@@ -42,7 +42,7 @@ const getFilteredWorkers = (
   positionType: string,
   sortingType: string,
   time: string,
-) => {
+):Worker[] => {
   let workers;
 
   if (positionType === 'all') {
@@ -57,7 +57,7 @@ const getFilteredWorkers = (
     workers.sort({ salary: -1 });
   }
 
-  const filtratedWorkers = workers.limit(pageSize).skip(pageSize * (currentPage - 1));
+  const filtratedWorkers:Worker[] = workers.limit(pageSize).skip(pageSize * (currentPage - 1));
 
   return filtratedWorkers;
 };

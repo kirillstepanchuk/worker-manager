@@ -14,15 +14,27 @@ const {
 const router = express();
 
 const storage = multer.diskStorage({
-  destination: (req: Request, file: ImageFileData, cb: (a: null, b: string)=> void) => {
+  destination: (
+    req: Request,
+    file: ImageFileData,
+    cb: (error: Error | null, filename: string)=> void,
+  ):void => {
     cb(null, './src/uploads/');
   },
-  filename: (req: Request, file: ImageFileData, cb: (a: null, b: string)=> void) => {
+  filename: (
+    req: Request,
+    file: ImageFileData,
+    cb: (error: Error | null, filename: string)=> void,
+  ) => {
     cb(null, file.originalname);
   },
 });
 
-const fileFilter = (req: Request, file: ImageFileData, cb: (a: null, b: boolean)=> void) => {
+const fileFilter = (
+  req: Request,
+  file: ImageFileData,
+  cb: (error: Error | null, filename: boolean)=> void,
+):void => {
   if (['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/svg'].includes(file.mimetype)) {
     cb(null, true);
   } else {
