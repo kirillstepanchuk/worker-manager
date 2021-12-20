@@ -17,14 +17,14 @@ const EditWorkerContainer = function () {
 
   const [isAdministration, setIsAdministration] = useState<boolean>();
 
-  const { id } = useParams();
+  const { id } = useParams<string>();
   const history = useHistory();
 
   useEffect(() => {
     dispatch(loadWorkerData(id as string));
   }, []);
 
-  const onSubmitHandler = async (evt: SyntheticEvent) => {
+  const onSubmitHandler = async (evt: SyntheticEvent):Promise<void> => {
     evt.preventDefault();
 
     const target = evt.target as HTMLFormElement;
@@ -38,7 +38,7 @@ const EditWorkerContainer = function () {
     history.goBack();
   };
 
-  const editWorkerDataHandler = (evt: ChangeEvent<HTMLInputElement>) => {
+  const editWorkerDataHandler = (evt: ChangeEvent<HTMLInputElement>):void => {
     const { target } = evt;
     dispatch(editWorkerData({ [target.name]: target.type === 'number' ? +target.value : target.value }));
   };

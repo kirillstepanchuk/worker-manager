@@ -3,19 +3,20 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import loadWorkersData from '../../../store/actions/loadWorkersData/loadWorkersData';
 import root from '../../../store/reducers/root';
+import { FilterParameters } from '../../../types/filterParameters';
 import PaginationList from '../../../components/common/PaginationList/PaginationList';
 
 type RootState = ReturnType<typeof root>;
 
 const PaginationListContainer = function () {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const dispatch = useDispatch();
-  const filterParameters = useSelector(
+  const filterParameters: FilterParameters = useSelector(
     (state: RootState) => state.filterParameters,
   );
 
-  const handleChange = (evt: ChangeEvent<any>, value: number) => {
+  const handleChange = (evt: ChangeEvent<any>, value: number):void => {
     setCurrentPage(value);
     dispatch(loadWorkersData(value, filterParameters));
   };

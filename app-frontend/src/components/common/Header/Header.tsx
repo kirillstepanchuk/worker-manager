@@ -1,11 +1,10 @@
 import React, { FC } from 'react';
 
 import { HeaderWrapper, Heading, Link } from './style';
+import { Location } from '../../../types/location';
 
 interface HeaderProps {
-  location: {
-    pathname: string;
-  }
+  location: Location
 }
 
 const Header: FC<HeaderProps> = function ({ location }) {

@@ -6,14 +6,14 @@ import setFilterParameters from '../../../store/actions/setFilterParameters/setF
 import Filtration from '../../../components/common/Filtration/Filtration';
 
 const FiltrationContainer = function () {
-  const [isAdministration, setIsAdministration] = useState(false);
-  const [isAll, setIsAll] = useState(true);
-  const [workTimeValue, setWorkTimeValue] = useState('08:00 - 14:00');
-  const [lunchTimeValue, setLunchTimeValue] = useState('12:00 - 12:45');
+  const [isAdministration, setIsAdministration] = useState<boolean>(false);
+  const [isAll, setIsAll] = useState<boolean>(true);
+  const [workTimeValue, setWorkTimeValue] = useState<string>('08:00 - 14:00');
+  const [lunchTimeValue, setLunchTimeValue] = useState<string>('12:00 - 12:45');
 
   const dispatch = useDispatch();
 
-  const onSubmitHandler = async (evt: SyntheticEvent) => {
+  const onSubmitHandler = async (evt: SyntheticEvent):Promise<void> => {
     evt.preventDefault();
     const target = evt.target as HTMLFormElement;
     const formData = Object.fromEntries(new FormData(target));

@@ -8,17 +8,17 @@ import AddWorker from '../../../components/modals/AddWorker/AddWorker';
 
 const AddWorkerContainer = function () {
   const [file, setFile] = useState<File | null>(null);
-  const [name, setName] = useState('');
-  const [salary, setSalary] = useState('');
-  const [placeNumber, setPlaceNumber] = useState('');
-  const [isAdministration, setIsAdministration] = useState(true);
-  const [openAlert, setOpenAlert] = useState(false);
+  const [name, setName] = useState<string>('');
+  const [salary, setSalary] = useState<string>('');
+  const [placeNumber, setPlaceNumber] = useState<string>('');
+  const [isAdministration, setIsAdministration] = useState<boolean>(true);
+  const [openAlert, setOpenAlert] = useState<boolean>(false);
 
-  const handleCloseAlert = () => {
+  const handleCloseAlert = ():void => {
     setOpenAlert(false);
   };
 
-  const onSubmitHandler = async (evt: SyntheticEvent) => {
+  const onSubmitHandler = async (evt: SyntheticEvent):Promise<void> => {
     evt.preventDefault();
 
     const target = evt.target as HTMLFormElement;
@@ -33,7 +33,7 @@ const AddWorkerContainer = function () {
     setOpenAlert(true);
   };
 
-  const onChangeFileHandler = (evt: ChangeEvent<HTMLInputElement>) => {
+  const onChangeFileHandler = (evt: ChangeEvent<HTMLInputElement>):void => {
     const files = evt.currentTarget.files as FileList;
     setFile(files[0]);
   };

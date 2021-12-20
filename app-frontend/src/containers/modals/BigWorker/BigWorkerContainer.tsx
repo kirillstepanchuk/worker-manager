@@ -7,7 +7,7 @@ import { Worker } from '../../../types/worker';
 import BigWorker from '../../../components/modals/BigWorker/BigWorker';
 
 const BigWorkerContainer = function () {
-  const { id } = useParams();
+  const { id } = useParams<string>();
 
   const dispatch = useDispatch();
   const worker:Worker = useSelector((state:RootStateOrAny) => state.worker.data);

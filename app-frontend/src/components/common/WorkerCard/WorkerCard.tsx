@@ -10,14 +10,13 @@ import {
   LinkConteiner,
 } from './style';
 import { API_URL } from '../../../store/constants';
+import { Location } from '../../../types/location';
 import { Worker } from '../../../types/worker';
 
 interface WorkerCardProps {
   worker: Worker,
   isAdministration: boolean,
-  location: {
-    pathname: string;
-  }
+  location: Location
 }
 
 const WorkerCard: FC<WorkerCardProps> = function ({
