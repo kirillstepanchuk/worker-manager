@@ -19,23 +19,23 @@ const store = createStore(root, initialState, composeWithDevTools(applyMiddlewar
 saga.run(sagaWatcher);
 
 const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#B9C4C9',
-    },
-    white: {
-      main: '#ffffff',
-    },
-  },
+	palette: {
+		primary: {
+			main: '#B9C4C9',
+		},
+		white: {
+			main: '#ffffff',
+		},
+	},
 });
 
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <App />
-      </ThemeProvider>
-    </BrowserRouter>
-  </Provider>,
-  document.getElementById('root'),
+	<Provider store={store}>
+		<BrowserRouter>
+			<ThemeProvider theme={theme}>
+				<App />
+			</ThemeProvider>
+		</BrowserRouter>
+	</Provider>,
+	document.getElementById('root'),
 );
