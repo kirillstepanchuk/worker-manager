@@ -10,12 +10,17 @@ export function* loadWorkersData(action: WorkersFiltrateAction) {
   try {
     const { payload } = action;
 
-    const responseData:AxiosResponse<Worker[]> = yield call(() => axios.get(
-      `${API_URL}/workers?pageNumber=${payload.page}&positionType=${payload.filterParameters.positionType}&sortingType=${payload.filterParameters.sortingType}&time=${payload.filterParameters.time}`,
-    ).then((response) => response.data));
+    const url = new URL(`${API_URL}/workers`);
+    url.searchParams.append('pageNumber', payload.page as string);
+    url.searchParams.append('positionType', payload.filterParameters.positionType as string);
+    url.searchParams.append('sortingType', payload.filterParameters.sortingType as string);
+    url.searchParams.append('time', payload.filterParameters.time as string);
+
+    const responseData: AxiosResponse<Worker[]> = yield call(() => axios.get(url.toString())
+      .then((response) => response.data));
 
     yield put(loadWorkersDataSuccess(responseData));
-  } catch (error) {
+  } catch (error: unknown) {
     if (error instanceof Error) {
       yield put(loadWorkersDataFailed(error.message));
     }
@@ -27,7 +32,7 @@ export function* loadWorkerData(action: WorkerIdAction) {
     const responseData:AxiosResponse<Worker> = yield call(() => axios.get(`${API_URL}/workers/${action.id}`).then((response) => response.data));
 
     yield put(loadWorkerDataSuccess(responseData));
-  } catch (error) {
+  } catch (error: unknown) {
     if (error instanceof Error) {
       yield put(loadWorkerDataFailed(error.message));
     }

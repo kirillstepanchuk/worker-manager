@@ -17,7 +17,7 @@ const handleAddWorker = async (
     const result:Worker = await createWorker({ ...req.body, avatar: filedata.filename });
 
     res.status(HttpStatusCode.OK).send(result);
-  } catch (error) {
+  } catch (error: unknown) {
     res.status(HttpStatusCode.INTERNAL_SERVER_ERROR).send({ error });
   }
 };
@@ -30,7 +30,7 @@ const handleUpdateWorker = async (
     const result:Worker = await updateWorker(req.params.id, req.body);
 
     res.status(HttpStatusCode.OK).send(result);
-  } catch (error) {
+  } catch (error: unknown) {
     res.status(HttpStatusCode.INTERNAL_SERVER_ERROR).send({ error });
   }
 };
@@ -43,7 +43,7 @@ const handleGetWorker = async (
     const result:Worker = await getWorker(req.params.id);
 
     res.status(HttpStatusCode.OK).send(result);
-  } catch (error) {
+  } catch (error: unknown) {
     res.status(HttpStatusCode.INTERNAL_SERVER_ERROR).send({ error });
   }
 };
@@ -68,7 +68,7 @@ const handleGetAllWorkers = async (
     );
 
     res.status(HttpStatusCode.OK).send(result);
-  } catch (error) {
+  } catch (error: unknown) {
     res.status(HttpStatusCode.INTERNAL_SERVER_ERROR).send({ error });
   }
 };
@@ -83,7 +83,7 @@ const handleUploadPhoto = async (
     const result:Worker = await updateWorker(req.query.id, { avatar: filedata.filename });
 
     res.status(HttpStatusCode.OK).send(result);
-  } catch (error) {
+  } catch (error: unknown) {
     res.status(HttpStatusCode.INTERNAL_SERVER_ERROR).send({ error });
   }
 };

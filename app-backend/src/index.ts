@@ -32,8 +32,8 @@ const startServer = async () => {
         useUnifiedTopology: true,
         useCreateIndex: true,
       },
-      (error: any) => {
-        if (error) {
+      (error: unknown) => {
+        if (error instanceof Error) {
           console.log('some error happened', error);
         }
         console.log('mongoDB has been connected successfully');
@@ -43,7 +43,7 @@ const startServer = async () => {
     app.listen(APP_PORT, () => {
       console.info(`server started on port ${APP_PORT}!`);
     });
-  } catch (error) {
+  } catch (error: unknown) {
     if (error instanceof Error) {
       console.log(`the ${error} happend with server`);
       console.log(`it means ${error.message}`);

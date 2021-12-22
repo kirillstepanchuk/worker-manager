@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
 import { GlobalStyle, Wrapper } from './style';
-import { Location } from '../../types/location';
+import { Location, Background } from '../../types/location';
 
 const Workers = lazy(() => import('../pages/Workers/Workers'));
 const BigWorker = lazy(() => import('../../containers/modals/BigWorker/BigWorkerContainer'));
@@ -12,8 +12,8 @@ const EditWorker = lazy(() => import('../../containers/modals/EditWorker/EditWor
 const AddWorker = lazy(() => import('../../containers/modals/AddWorker/AddWorkerContainer'));
 
 const App = function () {
-  const location:Location = useLocation();
-  const background = location.state && location.state.background;
+  const location: Location = useLocation();
+  const background: Background = location.state && location.state.background;
 
   return (
     <Wrapper>

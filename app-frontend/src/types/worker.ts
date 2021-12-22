@@ -45,7 +45,7 @@ export interface WorkersData {
 export interface WorkersFiltrateAction {
   type: string,
   payload: {
-    page: number,
+    page: string | number,
     filterParameters: FilterParameters
   }
 }
