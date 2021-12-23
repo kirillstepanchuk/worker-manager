@@ -15,7 +15,7 @@ const WorkerCardList: FC<WorkerCardListProps> = function ({
     <Wrapper>
       {workers.length
         ? (
-          workers.map((worker) => (
+          workers.map((worker: Worker) => (
             <WorkerCard
               key={worker._id}
               worker={worker}
