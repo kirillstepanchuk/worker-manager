@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Dispatch } from 'redux';
 
 import loadWorkersData from '../../../store/actions/loadWorkersData/loadWorkersData';
 import root from '../../../store/reducers/root';
@@ -11,7 +12,7 @@ type RootState = ReturnType<typeof root>;
 const PaginationListContainer = function () {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  const dispatch = useDispatch();
+  const dispatch: Dispatch = useDispatch();
   const filterParameters: FilterParameters = useSelector(
     (state: RootState) => state.filterParameters,
   );

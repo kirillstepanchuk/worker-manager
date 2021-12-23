@@ -4,6 +4,7 @@ import React, {
 import { useHistory } from 'react-router-dom';
 import { grey } from '@mui/material/colors';
 import CloseIcon from '@mui/icons-material/Close';
+import { History } from 'history';
 
 import { Modal, ModalContent, CloseButton } from './style';
 
@@ -12,7 +13,7 @@ interface ModalProps {
 }
 
 const ModalWrapper: FC<ModalProps> = function ({ children }) {
-  const history = useHistory();
+  const history: History = useHistory();
 
   return (
     <Modal onClick={() => history.goBack()}>

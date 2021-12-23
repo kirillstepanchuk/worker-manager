@@ -4,21 +4,23 @@ import React, {
 import { useParams, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
+import { Dispatch } from 'redux';
+import { History } from 'history';
 
 import loadWorkerData from '../../../store/actions/loadWorkerData/loadWorkerData';
 import { API_URL } from '../../../store/constants';
 import editWorkerData from '../../../store/actions/editWorkerData/editWorkerData';
-import { Worker } from '../../../types/worker';
+import { Worker, WorkerEdit } from '../../../types/worker';
 import EditWorker from '../../../components/modals/EditWorker/EditWorker';
 
 const EditWorkerContainer = function () {
-  const dispatch = useDispatch();
+  const dispatch: Dispatch = useDispatch();
   const worker:Worker = useSelector((state:RootStateOrAny) => state.worker.data);
 
   const [isAdministration, setIsAdministration] = useState<boolean>();
 
   const { id } = useParams<string>();
-  const history = useHistory();
+  const history: History = useHistory();
 
   useEffect(() => {
     dispatch(loadWorkerData(id as string));
@@ -28,7 +30,7 @@ const EditWorkerContainer = function () {
     evt.preventDefault();
 
     const target = evt.target as HTMLFormElement;
-    const formData = Object.fromEntries(new FormData(target));
+    const formData: WorkerEdit = Object.fromEntries(new FormData(target));
 
     await axios({
       method: 'PATCH',
