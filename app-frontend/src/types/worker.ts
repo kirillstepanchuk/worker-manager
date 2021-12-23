@@ -49,3 +49,8 @@ export interface WorkersFiltrateAction {
     filterParameters: FilterParameters
   }
 }
+
+export interface WorkerAddAction {
+  type: string,
+  payload: FormData
+}

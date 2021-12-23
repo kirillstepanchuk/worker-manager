@@ -3,8 +3,14 @@ import { put, call } from 'redux-saga/effects';
 
 import { loadWorkersDataSuccess, loadWorkersDataFailed } from '../actions/loadWorkersData/loadWorkersData';
 import { loadWorkerDataSuccess, loadWorkerDataFailed } from '../actions/loadWorkerData/loadWorkerData';
+import { addWorkerDataFailed } from '../actions/addWorkerData/addWorkerData';
 import { API_URL } from '../constants';
-import { Worker, WorkerIdAction, WorkersFiltrateAction } from '../../types/worker';
+import {
+  Worker,
+  WorkerIdAction,
+  WorkersFiltrateAction,
+  WorkerAddAction,
+} from '../../types/worker';
 
 export function* loadWorkersData(action: WorkersFiltrateAction) {
   try {
@@ -35,6 +41,21 @@ export function* loadWorkerData(action: WorkerIdAction) {
   } catch (error: unknown) {
     if (error instanceof Error) {
       yield put(loadWorkerDataFailed(error.message));
+    }
+  }
+}
+
+export function* addWorkerData(action: WorkerAddAction) {
+  try {
+    axios({
+      method: 'POST',
+      url: `${API_URL}/workers`,
+      data: action.payload,
+      withCredentials: true,
+    });
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      yield put(addWorkerDataFailed(error.message));
     }
   }
 }

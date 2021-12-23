@@ -1,10 +1,14 @@
 import initialState from '../initialState';
-import { LOAD_WORKER_DATA_SUCCESS, EDIT_WORKER_DATA } from '../constants';
+import { LOAD_WORKER_DATA_SUCCESS, EDIT_WORKER_DATA, ADD_WORKER_DATA_SUCCESS } from '../constants';
 import { WorkerEditData, WorkerAction } from '../../types/worker';
 
 const worker = (state: WorkerEditData = initialState.worker, action: WorkerAction) => {
   switch (action.type) {
     case LOAD_WORKER_DATA_SUCCESS:
+      return {
+        data: action.payload,
+      };
+    case ADD_WORKER_DATA_SUCCESS:
       return {
         data: action.payload,
       };

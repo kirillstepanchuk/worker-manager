@@ -1,10 +1,11 @@
 import React, {
   ChangeEvent, SyntheticEvent, useState,
 } from 'react';
-import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { Dispatch } from 'redux';
 
-import { API_URL } from '../../../store/constants';
 import AddWorker from '../../../components/modals/AddWorker/AddWorker';
+import addWorkerData from '../../../store/actions/addWorkerData/addWorkerData';
 
 const AddWorkerContainer = function () {
   const [file, setFile] = useState<File | null>(null);
@@ -14,6 +15,8 @@ const AddWorkerContainer = function () {
   const [isAdministration, setIsAdministration] = useState<boolean>(true);
   const [openAlert, setOpenAlert] = useState<boolean>(false);
 
+  const dispatch: Dispatch = useDispatch();
+
   const handleCloseAlert = ():void => {
     setOpenAlert(false);
   };
@@ -22,14 +25,10 @@ const AddWorkerContainer = function () {
     evt.preventDefault();
 
     const target = evt.target as HTMLFormElement;
-    const formData = new FormData(target);
+    const formData: FormData = new FormData(target);
 
-    await axios({
-      method: 'POST',
-      url: `${API_URL}/workers`,
-      data: formData,
-      withCredentials: true,
-    });
+    dispatch(addWorkerData(formData));
+
     setOpenAlert(true);
   };
 
