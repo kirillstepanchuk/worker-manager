@@ -1,8 +1,8 @@
 import React, {
   ChangeEvent, SyntheticEvent, useState,
 } from 'react';
-import { useDispatch } from 'react-redux';
 import { Dispatch } from 'redux';
+import { useDispatch } from 'react-redux';
 
 import AddWorker from '../../../components/modals/AddWorker/AddWorker';
 import addWorkerData from '../../../store/actions/addWorkerData/addWorkerData';

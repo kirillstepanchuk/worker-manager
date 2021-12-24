@@ -2,8 +2,8 @@ import React, {
   useEffect, useState, SyntheticEvent, ChangeEvent,
 } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from 'redux';
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { History } from 'history';
 
 import loadWorkerData from '../../../store/actions/loadWorkerData/loadWorkerData';
