@@ -54,3 +54,11 @@ export interface WorkerAddAction {
   type: string,
   payload: FormData
 }
+
+export interface WorkerEditAction {
+  type: string,
+  payload: {
+    workerData: FormData,
+    id: string,
+  }
+}
