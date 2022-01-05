@@ -1,12 +1,16 @@
 {
 	"env": {
 		"browser": true,
-		"es2021": true
+		"es2021": true,
+		"jest": true
 	},
 	"parser": "@typescript-eslint/parser",
 	"extends": [
 		"airbnb",
-		"airbnb-typescript"
+		"airbnb-typescript",
+		"plugin:jest/recommended",
+		"plugin:jest/style",
+		"plugin:testing-library/react"
 	],
 	"parserOptions": {
 		"presets": ["@babel/preset-react"],

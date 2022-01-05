@@ -14,7 +14,7 @@ import {
   controlProps,
 } from './style';
 
-interface FiltrationProps {
+export interface FiltrationProps {
   onSubmitHandler: (evt: SyntheticEvent) => void,
   isAll: boolean,
   setIsAll: (value: boolean) => void,
@@ -45,7 +45,7 @@ const Filtration: FC<FiltrationProps> = function ({
       <Title>Основные параметры</Title>
       <ParametersContainer>
         <FormControl component="fieldset">
-          <FormLabel>Тип сотрудников:</FormLabel>
+          <FormLabel>Тип сотрудников</FormLabel>
           <RadioGroup defaultValue="all" name="positionType">
             <FormControlLabel
               onClick={() => {
@@ -147,7 +147,7 @@ const Filtration: FC<FiltrationProps> = function ({
           </ParametersContainer>
         ))}
       <ButtonContainer>
-        <Button variant="outlined" type="submit">
+        <Button variant="outlined" type="submit" name="submit-button">
           Применить
         </Button>
       </ButtonContainer>

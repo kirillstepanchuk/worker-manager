@@ -7,9 +7,21 @@ import setFilterParameters from '../../../store/actions/setFilterParameters/setF
 import Filtration from '../../../components/common/Filtration/Filtration';
 import { FilterParameters } from '../../../types/filterParameters';
 
+export interface FiltrationProps {
+  onSubmitHandler: (evt: SyntheticEvent) => void,
+  isAll: boolean,
+  setIsAll: (value: boolean) => void,
+  isAdministration: boolean,
+  setIsAdministration: (value: boolean) => void,
+  workTimeValue: string,
+  setWorkTimeValue: (value: string) => void,
+  lunchTimeValue: string,
+  setLunchTimeValue: (value: string) => void
+}
+
 const FiltrationContainer = function () {
-  const [isAdministration, setIsAdministration] = useState<boolean>(false);
   const [isAll, setIsAll] = useState<boolean>(true);
+  const [isAdministration, setIsAdministration] = useState<boolean>(false);
   const [workTimeValue, setWorkTimeValue] = useState<string>('08:00 - 14:00');
   const [lunchTimeValue, setLunchTimeValue] = useState<string>('12:00 - 12:45');
 

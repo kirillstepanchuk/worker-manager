@@ -1,6 +1,6 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, FC } from 'react';
 import {
-  Route, Switch, Redirect, useLocation,
+  Route, Switch, Redirect,
 } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
 import { GlobalStyle, Wrapper } from './style';
@@ -11,10 +11,12 @@ const BigWorker = lazy(() => import('../../containers/modals/BigWorker/BigWorker
 const EditWorker = lazy(() => import('../../containers/modals/EditWorker/EditWorkerContainer'));
 const AddWorker = lazy(() => import('../../containers/modals/AddWorker/AddWorkerContainer'));
 
-const App = function () {
-  const location: Location = useLocation();
-  const background: Background = location.state && location.state.background;
+interface AppProps {
+  location: Location,
+  background: Background
+}
 
+const App: FC<AppProps> = function ({ location, background }) {
   return (
     <Wrapper>
       <GlobalStyle />

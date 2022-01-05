@@ -8,7 +8,7 @@ import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import App from './components/App/App';
+import App from './containers/App/AppContainer';
 import root from './store/reducers/root';
 import sagaWatcher from './store/sagas/watcher';
 
