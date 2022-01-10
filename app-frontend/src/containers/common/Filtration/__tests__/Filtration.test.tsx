@@ -39,9 +39,11 @@ describe('Filtration container', () => {
     user.click(screen.getByRole('radio', { name: 'Руководство' }));
     expect(screen.getByRole('radio', { name: 'Руководство' })).toBeChecked();
     expect(screen.getByText('Часы приема:')).toBeInTheDocument();
+    expect(screen.queryByText('Обеденное время:')).not.toBeInTheDocument();
 
     user.click(screen.getByRole('radio', { name: 'Сотрудники' }));
     expect(screen.getByRole('radio', { name: 'Сотрудники' })).toBeChecked();
+    expect(screen.queryByText('Часы приема:')).not.toBeInTheDocument();
     expect(screen.getByText('Обеденное время:')).toBeInTheDocument();
   });
 });
