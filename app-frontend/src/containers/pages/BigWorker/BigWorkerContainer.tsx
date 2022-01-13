@@ -4,21 +4,25 @@ import { useParams } from 'react-router-dom';
 import { Dispatch } from 'redux';
 
 import loadWorkerData from '../../../store/actions/loadWorkerData/loadWorkerData';
-import { Worker } from '../../../types/worker';
-import BigWorker from '../../../components/modals/BigWorker/BigWorker';
+import { WorkerState } from '../../../types/worker';
+import BigWorker from '../../../components/pages/BigWorker/BigWorker';
 
 const BigWorkerContainer = function () {
-  const { id } = useParams<string>();
+  const { id } = useParams<{ id: string }>();
 
   const dispatch: Dispatch = useDispatch();
-  const worker:Worker = useSelector((state:RootStateOrAny) => state.worker.data);
+  const worker: WorkerState = useSelector((state:RootStateOrAny) => state.worker);
 
   useEffect(() => {
     dispatch(loadWorkerData(id as string));
   }, []);
 
   return (
-    <BigWorker worker={worker} />
+    <BigWorker
+      worker={worker.data}
+      loading={worker.loading}
+      error={worker.error}
+    />
   );
 };
 

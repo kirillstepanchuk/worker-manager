@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link as RouterLink } from 'react-router-dom';
 
 export const CardContainer = styled.div`
     position: relative;
@@ -58,4 +59,22 @@ export const LinkS = styled.a`
         border-color: #000000;
         transition: .5s;
     }
+`;
+
+export const Link = styled(RouterLink)`
+text-decoration: none;
+color: #b9c4c9;
+
+padding: 10px;
+margin-top: 20px;
+
+border: 1px solid #b9c4c9;
+border-radius: 5px;
+
+&:hover {
+color: #959b9e;
+border-color: #959b9e;
+
+transition: 0.5s;
+}
 `;

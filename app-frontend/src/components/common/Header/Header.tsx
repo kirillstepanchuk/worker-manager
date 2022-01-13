@@ -1,23 +1,13 @@
 import React, { FC } from 'react';
 
 import { HeaderWrapper, Heading, Link } from './style';
-import { Location } from '../../../types/location';
 
-interface HeaderProps {
-  location: Location
-}
-
-const Header: FC<HeaderProps> = function ({ location }) {
+const Header: FC = function () {
   return (
     <HeaderWrapper>
       <Heading>Сотрудники</Heading>
 
-      <Link
-        to={{
-          pathname: '/worker-add',
-          state: { background: location },
-        }}
-      >
+      <Link to="/worker-add">
         Добавить
       </Link>
     </HeaderWrapper>

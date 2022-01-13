@@ -14,7 +14,7 @@ const PaginationListContainer = function () {
 
   const dispatch: Dispatch = useDispatch();
   const filterParameters: FilterParameters = useSelector(
-    (state: RootState) => state.filterParameters,
+    (state: RootState) => state.filterParameters.data,
   );
 
   const handleChange = (evt: ChangeEvent<any>, value: number):void => {
