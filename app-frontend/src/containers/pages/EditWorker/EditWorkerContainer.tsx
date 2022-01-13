@@ -1,25 +1,23 @@
 import React, {
   useEffect, useState, SyntheticEvent, ChangeEvent,
 } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Dispatch } from 'redux';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
-import { History } from 'history';
 
 import loadWorkerData from '../../../store/actions/loadWorkerData/loadWorkerData';
 import editWorkerState from '../../../store/actions/editWorkerState/editWorkerState';
 import editWorkerData from '../../../store/actions/editWorkerData/editWorkerData';
-import { Worker, WorkerEdit } from '../../../types/worker';
-import EditWorker from '../../../components/modals/EditWorker/EditWorker';
+import { WorkerState, WorkerEdit } from '../../../types/worker';
+import EditWorker from '../../../components/pages/EditWorker/EditWorker';
 
 const EditWorkerContainer = function () {
   const dispatch: Dispatch = useDispatch();
-  const worker:Worker = useSelector((state:RootStateOrAny) => state.worker.data);
+  const worker:WorkerState = useSelector((state:RootStateOrAny) => state.worker);
 
   const [isAdministration, setIsAdministration] = useState<boolean>();
 
-  const { id } = useParams<string>();
-  const history: History = useHistory();
+  const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
     dispatch(loadWorkerData(id as string));
@@ -31,9 +29,7 @@ const EditWorkerContainer = function () {
     const target = evt.target as HTMLFormElement;
     const formData: WorkerEdit = Object.fromEntries(new FormData(target));
 
-    dispatch(editWorkerData(formData, worker._id));
-
-    history.goBack();
+    dispatch(editWorkerData(formData, worker.data._id));
   };
 
   const editWorkerDataHandler = (evt: ChangeEvent<HTMLInputElement>):void => {
@@ -43,11 +39,13 @@ const EditWorkerContainer = function () {
 
   return (
     <EditWorker
-      worker={worker}
+      worker={worker.data}
       onSubmitHandler={onSubmitHandler}
       isAdministration={isAdministration}
       setIsAdministration={setIsAdministration}
       editWorkerDataHandler={editWorkerDataHandler}
+      loading={worker.loading}
+      error={worker.error}
     />
   );
 };

@@ -2,38 +2,27 @@ import React, { Suspense, lazy, FC } from 'react';
 import {
   Route, Switch, Redirect,
 } from 'react-router-dom';
-import CircularProgress from '@mui/material/CircularProgress';
+import LinearProgress from '@mui/material/LinearProgress';
+
 import { GlobalStyle, Wrapper } from './style';
-import { Location, Background } from '../../types/location';
 
 const Workers = lazy(() => import('../pages/Workers/Workers'));
-const BigWorker = lazy(() => import('../../containers/modals/BigWorker/BigWorkerContainer'));
-const EditWorker = lazy(() => import('../../containers/modals/EditWorker/EditWorkerContainer'));
-const AddWorker = lazy(() => import('../../containers/modals/AddWorker/AddWorkerContainer'));
+const BigWorker = lazy(() => import('../../containers/pages/BigWorker/BigWorkerContainer'));
+const EditWorker = lazy(() => import('../../containers/pages/EditWorker/EditWorkerContainer'));
+const AddWorker = lazy(() => import('../../containers/pages/AddWorker/AddWorkerContainer'));
 
-interface AppProps {
-  location: Location,
-  background: Background
-}
-
-const App: FC<AppProps> = function ({ location, background }) {
+const App: FC = function () {
   return (
     <Wrapper>
       <GlobalStyle />
-      <Suspense fallback={<CircularProgress />}>
-        <Switch location={background || location}>
+      <Suspense fallback={<LinearProgress />}>
+        <Switch>
           <Route path="/workers"><Workers /></Route>
+          <Route path="/worker/:id"><BigWorker /></Route>
+          <Route path="/worker-edit/:id"><EditWorker /></Route>
+          <Route path="/worker-add"><AddWorker /></Route>
           <Redirect to="/workers" />
         </Switch>
-        {background && (
-          <Route path="/worker/:id"><BigWorker /></Route>
-        )}
-        {background && (
-          <Route path="/worker-edit/:id"><EditWorker /></Route>
-        )}
-        {background && (
-          <Route path="/worker-add"><AddWorker /></Route>
-        )}
       </Suspense>
     </Wrapper>
   );

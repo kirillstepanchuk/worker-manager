@@ -1,9 +1,9 @@
 export type Background = {
-  hash?: string
-  key?: string
+  hash: string
+  key: string
   pathname: string
-  search?: string
-  state?: undefined
+  search: string
+  state: undefined
 } | undefined;
 
 export interface Location {

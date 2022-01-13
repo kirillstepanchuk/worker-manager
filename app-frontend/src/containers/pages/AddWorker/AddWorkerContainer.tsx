@@ -2,10 +2,11 @@ import React, {
   ChangeEvent, SyntheticEvent, useState,
 } from 'react';
 import { Dispatch } from 'redux';
-import { useDispatch } from 'react-redux';
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 
-import AddWorker from '../../../components/modals/AddWorker/AddWorker';
+import AddWorker from '../../../components/pages/AddWorker/AddWorker';
 import addWorkerData from '../../../store/actions/addWorkerData/addWorkerData';
+import { WorkerState } from '../../../types/worker';
 
 const AddWorkerContainer = function () {
   const [file, setFile] = useState<File | null>(null);
@@ -13,13 +14,9 @@ const AddWorkerContainer = function () {
   const [salary, setSalary] = useState<string>('');
   const [placeNumber, setPlaceNumber] = useState<string>('');
   const [isAdministration, setIsAdministration] = useState<boolean>(true);
-  const [openAlert, setOpenAlert] = useState<boolean>(false);
 
   const dispatch: Dispatch = useDispatch();
-
-  const handleCloseAlert = ():void => {
-    setOpenAlert(false);
-  };
+  const worker: WorkerState = useSelector((state:RootStateOrAny) => state.worker);
 
   const onSubmitHandler = async (evt: SyntheticEvent):Promise<void> => {
     evt.preventDefault();
@@ -28,8 +25,6 @@ const AddWorkerContainer = function () {
     const formData: FormData = new FormData(target);
 
     dispatch(addWorkerData(formData));
-
-    setOpenAlert(true);
   };
 
   const onChangeFileHandler = (evt: ChangeEvent<HTMLInputElement>):void => {
@@ -50,8 +45,8 @@ const AddWorkerContainer = function () {
       setSalary={setSalary}
       placeNumber={placeNumber}
       setPlaceNumber={setPlaceNumber}
-      openAlert={openAlert}
-      handleCloseAlert={handleCloseAlert}
+      loading={worker.loading}
+      error={worker.error}
     />
   );
 };

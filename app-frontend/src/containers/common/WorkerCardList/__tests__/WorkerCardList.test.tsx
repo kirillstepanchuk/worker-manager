@@ -13,9 +13,13 @@ const setup = (workersList: Worker[]) => {
   const initialState: InitialState = {
     workers: {
       data: workersList,
+      loading: false,
+      error: '',
     },
     worker: {
       data: {},
+      loading: false,
+      error: '',
     },
     filterParameters: {
       data: {},

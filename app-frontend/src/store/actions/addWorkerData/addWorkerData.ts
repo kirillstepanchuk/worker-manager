@@ -1,19 +1,41 @@
-import { ADD_WORKER_DATA, ADD_WORKER_DATA_SUCCESS, ADD_WORKER_DATA_FAILED } from '../../constants';
-import { WorkersData } from '../../../types/worker';
+import { WorkerData } from '../../../types/worker';
 
-const addWorkerData = (workerData: FormData) => ({
-  type: ADD_WORKER_DATA,
-  payload: workerData,
+export enum AddWorkerDataActionTypes {
+  ADD_WORKER_DATA = 'ADD_WORKER_DATA',
+  ADD_WORKER_DATA_SUCCESS = 'ADD_WORKER_DATA_SUCCESS',
+  ADD_WORKER_DATA_FAILED = 'ADD_WORKER_DATA_FAILED',
+}
+
+export interface AddWorkerData {
+  type: AddWorkerDataActionTypes.ADD_WORKER_DATA,
+  payload: FormData,
+}
+
+interface AddWorkerDataSuccess {
+  type: AddWorkerDataActionTypes.ADD_WORKER_DATA_SUCCESS,
+  payload: WorkerData,
+}
+
+interface AddWorkerDataFailed {
+  type: AddWorkerDataActionTypes.ADD_WORKER_DATA_FAILED,
+  payload: string,
+}
+
+export type AddWorkerDataActions = AddWorkerData | AddWorkerDataSuccess | AddWorkerDataFailed;
+
+const addWorkerData = (worker: FormData): AddWorkerData => ({
+  type: AddWorkerDataActionTypes.ADD_WORKER_DATA,
+  payload: worker,
 });
 
-export const addWorkerDataFailed = (error: string) => ({
-  type: ADD_WORKER_DATA_FAILED,
+export const addWorkerDataSuccess = (worker: WorkerData): AddWorkerDataSuccess => ({
+  type: AddWorkerDataActionTypes.ADD_WORKER_DATA_SUCCESS,
+  payload: worker,
+});
+
+export const addWorkerDataFailed = (error: string): AddWorkerDataFailed => ({
+  type: AddWorkerDataActionTypes.ADD_WORKER_DATA_FAILED,
   payload: error,
-});
-
-export const addWorkerDataSuccess = (workerData: WorkersData) => ({
-  type: ADD_WORKER_DATA_SUCCESS,
-  payload: workerData,
 });
 
 export default addWorkerData;

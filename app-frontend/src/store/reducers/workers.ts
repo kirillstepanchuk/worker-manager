@@ -1,12 +1,38 @@
-import initialState from '../initialState';
-import { LOAD_WORKERS_DATA_SUCCESS } from '../constants';
-import { WorkersData, WorkerAction } from '../../types/worker';
+import { Worker } from '../../types/worker';
+import { LoadWorkersDataActions, LoadWorkersDataActionTypes } from '../actions/loadWorkersData/loadWorkersData';
 
-const workers = (state: WorkersData = initialState.workers, action: WorkerAction) => {
+export interface WorkersState {
+  data: Worker[],
+  loading: boolean,
+  error: string,
+}
+
+const initialState: WorkersState = {
+  data: [],
+  loading: false,
+  error: '',
+};
+
+type WorkersActionTypes = LoadWorkersDataActions;
+
+const workers = (state: WorkersState = initialState, action: WorkersActionTypes): WorkersState => {
   switch (action.type) {
-    case LOAD_WORKERS_DATA_SUCCESS:
+    case LoadWorkersDataActionTypes.LOAD_WORKERS_DATA:
       return {
+        ...state,
+        loading: true,
+      };
+    case LoadWorkersDataActionTypes.LOAD_WORKERS_DATA_SUCCESS:
+      return {
+        ...state,
         data: action.payload,
+        loading: false,
+      };
+    case LoadWorkersDataActionTypes.LOAD_WORKERS_DATA_FAILED:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
       };
     default:
       return state;
