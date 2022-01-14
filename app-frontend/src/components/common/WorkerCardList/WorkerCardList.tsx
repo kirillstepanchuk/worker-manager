@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import WorkerCard from '../../../containers/common/WorkerCard/WorkerCardContainer';
+import WorkerCard from '../../../containers/common/WorkerCardContainer';
 import { Wrapper, CenterWrapper } from './style';
 import { Worker } from '../../../types/worker';
 
@@ -20,7 +20,7 @@ const WorkerCardList: FC<WorkerCardListProps> = function ({
     return (
       <Wrapper>
         <CenterWrapper>
-          <CircularProgress color="inherit" />
+          <CircularProgress data-testid="loading" color="inherit" />
         </CenterWrapper>
       </Wrapper>
     );

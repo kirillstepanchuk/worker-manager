@@ -3,9 +3,9 @@ import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Dispatch } from 'redux';
 
-import loadWorkerData from '../../../store/actions/loadWorkerData/loadWorkerData';
-import { WorkerState } from '../../../types/worker';
-import BigWorker from '../../../components/pages/BigWorker/BigWorker';
+import loadWorkerData from '../../store/actions/loadWorkerData/loadWorkerData';
+import { WorkerState } from '../../types/worker';
+import BigWorker from '../../components/pages/BigWorker/BigWorker';
 
 const BigWorkerContainer = function () {
   const { id } = useParams<{ id: string }>();

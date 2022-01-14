@@ -3,19 +3,15 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import { InitialState } from '../../../../types/initialState';
+import { InitialState } from '../../../types/initialState';
 import WorkerCardListContainer from '../WorkerCardListContainer';
-import { workersFilled, workersEmpty } from '../../../../mocks/store/constants';
-import createMockStore from '../../../../mocks/store/mockStore';
-import { Worker } from '../../../../types/worker';
+import { workerMockList } from '../../../mocks/store/constants';
+import createMockStore from '../../../mocks/store/mockStore';
+import { WorkersState } from '../../../store/reducers/workers';
 
-const setup = (workersList: Worker[]) => {
+const setup = (workers: WorkersState) => {
   const initialState: InitialState = {
-    workers: {
-      data: workersList,
-      loading: false,
-      error: '',
-    },
+    workers,
     worker: {
       data: {},
       loading: false,
@@ -31,7 +27,7 @@ const setup = (workersList: Worker[]) => {
 
 describe('WorkerCardList container', () => {
   it('should render correct content', () => {
-    setup(workersFilled);
+    setup(workerMockList.filled);
 
     expect(screen.getByText('Kirill')).toBeInTheDocument();
     expect(screen.getByText('3232232 BYN')).toBeInTheDocument();
@@ -45,8 +41,20 @@ describe('WorkerCardList container', () => {
   });
 
   it('should render correct title, when there is no workers', () => {
-    setup(workersEmpty);
+    setup(workerMockList.empty);
 
     expect(screen.getByText('Сотрудников на этой странице нет =(')).toBeInTheDocument();
+  });
+
+  it('should render correct error notification', () => {
+    setup(workerMockList.failed);
+
+    expect(screen.getByText('Упс... Не получилось загрузить пользователей. Попробуйте позже.')).toBeInTheDocument();
+  });
+
+  it('should render loading', () => {
+    setup(workerMockList.loading);
+
+    expect(screen.getByTestId('loading')).toBeInTheDocument();
   });
 });

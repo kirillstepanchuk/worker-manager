@@ -8,9 +8,7 @@ export const worker = {
   _id: 'f322142342r233f',
 };
 
-export const workersEmpty = [];
-
-export const workersFilled = [
+const workerList = [
   {
     avatar: 'some-img.png',
     name: 'Kirill',
@@ -30,3 +28,26 @@ export const workersFilled = [
     _id: '234324322342',
   },
 ];
+
+export const workerMockList = {
+  filled: {
+    data: workerList,
+    loading: false,
+    error: '',
+  },
+  empty: {
+    data: [],
+    loading: false,
+    error: '',
+  },
+  failed: {
+    data: [],
+    loading: false,
+    error: 'Error',
+  },
+  loading: {
+    data: [],
+    loading: true,
+    error: '',
+  },
+};

@@ -5,7 +5,7 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import user from '@testing-library/user-event';
 
-import filterParameters from '../../../../store/reducers/filterParameters';
+import filterParameters from '../../../store/reducers/filterParameters';
 import FiltrationContainer from '../FiltrationContainer';
 
 const createTestStore = () => {

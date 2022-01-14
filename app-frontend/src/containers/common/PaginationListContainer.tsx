@@ -2,10 +2,10 @@ import React, { useState, ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import loadWorkersData from '../../../store/actions/loadWorkersData/loadWorkersData';
-import root from '../../../store/reducers/root';
-import { FilterParameters } from '../../../types/filterParameters';
-import PaginationList from '../../../components/common/PaginationList/PaginationList';
+import loadWorkersData from '../../store/actions/loadWorkersData/loadWorkersData';
+import root from '../../store/reducers/root';
+import { FilterParameters } from '../../types/filterParameters';
+import PaginationList from '../../components/common/PaginationList/PaginationList';
 
 type RootState = ReturnType<typeof root>;
 

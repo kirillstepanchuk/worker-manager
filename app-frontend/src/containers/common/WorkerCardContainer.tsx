@@ -1,7 +1,7 @@
 import React, { useState, FC } from 'react';
 
-import { Worker } from '../../../types/worker';
-import WorkerCard from '../../../components/common/WorkerCard/WorkerCard';
+import { Worker } from '../../types/worker';
+import WorkerCard from '../../components/common/WorkerCard/WorkerCard';
 
 interface WorkerProps {
   worker: Worker
