@@ -5,14 +5,14 @@ import { EditWorkerStateActions, EditWorkerStateActionTypes } from '../actions/e
 import { WorkerData, WorkerEdit, WorkerEditData } from '../../types/worker';
 
 export interface WorkerState {
-  data: WorkerData | WorkerEdit | WorkerEditData,
+  data: WorkerData | WorkerEdit | WorkerEditData | null,
   loading: boolean,
-  error: string,
+  error: boolean,
 }
 const initialState: WorkerState = {
-  data: {},
+  data: null,
   loading: false,
-  error: '',
+  error: false,
 };
 
 type WorkerActionTypes =
@@ -38,7 +38,7 @@ const worker = (state: WorkerState = initialState, action: WorkerActionTypes): W
       return {
         ...state,
         loading: false,
-        error: action.payload,
+        error: true,
       };
     case AddWorkerDataActionTypes.ADD_WORKER_DATA:
       return {
@@ -55,7 +55,7 @@ const worker = (state: WorkerState = initialState, action: WorkerActionTypes): W
       return {
         ...state,
         loading: false,
-        error: action.payload,
+        error: true,
       };
     case EditWorkerDataActionTypes.EDIT_WORKER_DATA:
       return {
@@ -72,7 +72,7 @@ const worker = (state: WorkerState = initialState, action: WorkerActionTypes): W
       return {
         ...state,
         loading: false,
-        error: action.payload,
+        error: true,
       };
     case EditWorkerStateActionTypes.EDIT_WORKER_STATE:
       return {

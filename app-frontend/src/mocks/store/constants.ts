@@ -33,21 +33,21 @@ export const workerMockList = {
   filled: {
     data: workerList,
     loading: false,
-    error: '',
+    error: false,
   },
   empty: {
     data: [],
     loading: false,
-    error: '',
+    error: false,
   },
   failed: {
     data: [],
     loading: false,
-    error: 'Error',
+    error: true,
   },
   loading: {
     data: [],
     loading: true,
-    error: '',
+    error: false,
   },
 };

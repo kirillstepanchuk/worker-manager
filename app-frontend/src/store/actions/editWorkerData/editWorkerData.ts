@@ -23,12 +23,12 @@ interface EditWorkerDataSuccess {
 
 interface EditWorkerDataFailed {
   type: EditWorkerDataActionTypes.EDIT_WORKER_DATA_FAILED,
-  payload: string,
+  payload: boolean,
 }
 
 export type EditWorkerDataActions = EditWorkerData | EditWorkerDataSuccess | EditWorkerDataFailed;
 
-const editWorkerData = (workerData: WorkerEdit, id: string): EditWorkerData => ({
+export const editWorkerData = (workerData: WorkerEdit, id: string): EditWorkerData => ({
   type: EditWorkerDataActionTypes.EDIT_WORKER_DATA,
   payload: {
     workerData,
@@ -43,9 +43,7 @@ export const editWorkerDataSuccess = (workerData: WorkerEdit): EditWorkerDataSuc
   },
 });
 
-export const editWorkerDataFailed = (error: string): EditWorkerDataFailed => ({
+export const editWorkerDataFailed = (error: boolean): EditWorkerDataFailed => ({
   type: EditWorkerDataActionTypes.EDIT_WORKER_DATA_FAILED,
   payload: error,
 });
-
-export default editWorkerData;

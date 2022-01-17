@@ -4,15 +4,15 @@ const initialState: InitialState = {
   workers: {
     data: [],
     loading: false,
-    error: '',
+    error: true,
   },
   worker: {
-    data: {},
+    data: null,
     loading: false,
-    error: '',
+    error: true,
   },
   filterParameters: {
-    data: {},
+    data: null,
   },
 };
 

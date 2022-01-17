@@ -20,5 +20,9 @@ export const Wrapper = styled.div`
 `;
 
 export const CenterWrapper = styled.div`
+    text-align: center;
+
     margin: 0 auto;
+
+    width: 550px;
 `;

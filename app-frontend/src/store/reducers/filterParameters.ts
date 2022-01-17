@@ -6,7 +6,7 @@ export interface FilterParametersState {
 }
 
 const initialState: FilterParametersState = {
-  data: {},
+  data: null,
 };
 
 type FilterParametersActionTypes = SetFilterParametersActions;

@@ -6,7 +6,7 @@ import {
   WorkerEdit,
 } from '../../../types/worker';
 import { EditWorkerData } from '../../actions/editWorkerData/editWorkerData';
-import { API_URL } from '../../constants';
+import { API_URL } from '../../../constants';
 
 export const loadWorker = async (id: string): Promise<Worker> => {
   const response = await axios({

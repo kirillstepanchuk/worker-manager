@@ -9,13 +9,14 @@ import {
   ParameterValue,
   Link,
 } from './style';
-import { API_URL } from '../../../store/constants';
+
 import { Worker } from '../../../types/worker';
+import { API_URL } from '../../../constants';
 
 interface BigWorkerProps {
   worker: Worker,
   loading: boolean,
-  error: string,
+  error: boolean,
 }
 
 const BigWorker: FC<BigWorkerProps> = function ({
@@ -44,29 +45,29 @@ const BigWorker: FC<BigWorkerProps> = function ({
     <CardContainer>
       <img
         width="200px"
-        src={`${API_URL}/getImage/${worker.avatar}`}
+        src={`${API_URL}/getImage/${worker?.avatar}`}
         alt="avatar"
       />
-      <NameTitle>{`${worker.name}`}</NameTitle>
+      <NameTitle>{`${worker?.name}`}</NameTitle>
       <TypeTitle>
-        {worker.positionType === 'administration'
+        {worker?.positionType === 'administration'
           ? 'Руководство'
           : 'Сотрудник'}
       </TypeTitle>
       <ParameterHeading>Зарплата:</ParameterHeading>
       <ParameterValue>
-        {worker.salary}
+        {worker?.salary}
         {' '}
         BYN
       </ParameterValue>
-      {worker.positionType === 'administration'
+      {worker?.positionType === 'administration'
         ? (
           <>
             <ParameterHeading>
               Часы приема:
             </ParameterHeading>
             <ParameterValue>
-              {worker.time}
+              {worker?.time}
             </ParameterValue>
           </>
         )
@@ -76,13 +77,13 @@ const BigWorker: FC<BigWorkerProps> = function ({
               Обеденное время:
             </ParameterHeading>
             <ParameterValue>
-              {worker.time}
+              {worker?.time}
             </ParameterValue>
             <ParameterHeading>
               Номер рабочего места:
             </ParameterHeading>
             <ParameterValue>
-              {worker.placeNumber}
+              {worker?.placeNumber}
             </ParameterValue>
           </>
         )}

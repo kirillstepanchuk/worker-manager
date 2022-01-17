@@ -11,9 +11,7 @@ interface EditWorkerState {
 
 export type EditWorkerStateActions = EditWorkerState;
 
-const editWorkerState = (workerData: WorkerEdit): EditWorkerState => ({
+export const editWorkerState = (workerData: WorkerEdit): EditWorkerState => ({
   type: EditWorkerStateActionTypes.EDIT_WORKER_STATE,
   payload: workerData,
 });
-
-export default editWorkerState;

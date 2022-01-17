@@ -1,36 +1,56 @@
 import React, {
-  ChangeEvent, SyntheticEvent, useState,
+  ChangeEvent, SyntheticEvent, useCallback, useState,
 } from 'react';
 import { Dispatch } from 'redux';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 
 import AddWorker from '../../components/pages/AddWorker/AddWorker';
-import addWorkerData from '../../store/actions/addWorkerData/addWorkerData';
+import { addWorkerData } from '../../store/actions/addWorkerData/addWorkerData';
 import { WorkerState } from '../../types/worker';
 
 const AddWorkerContainer = function () {
-  const [file, setFile] = useState<File | null>(null);
+  const [file, setFile] = useState<File | undefined>(undefined);
   const [name, setName] = useState<string>('');
   const [salary, setSalary] = useState<string>('');
   const [placeNumber, setPlaceNumber] = useState<string>('');
   const [isAdministration, setIsAdministration] = useState<boolean>(true);
 
   const dispatch: Dispatch = useDispatch();
-  const worker: WorkerState = useSelector((state:RootStateOrAny) => state.worker);
+  const worker: WorkerState = useSelector((state: RootStateOrAny) => state.worker);
 
-  const onSubmitHandler = async (evt: SyntheticEvent):Promise<void> => {
+  const onSubmitHandler = useCallback(async (evt: SyntheticEvent):Promise<void> => {
     evt.preventDefault();
 
     const target = evt.target as HTMLFormElement;
     const formData: FormData = new FormData(target);
 
     dispatch(addWorkerData(formData));
-  };
+  }, []);
 
-  const onChangeFileHandler = (evt: ChangeEvent<HTMLInputElement>):void => {
+  const onChangeFileHandler = useCallback((evt: ChangeEvent<HTMLInputElement>):void => {
     const files = evt.currentTarget.files as FileList;
     setFile(files[0]);
-  };
+  }, []);
+
+  const setTrueAdministrationValue = useCallback(() => {
+    setIsAdministration(true);
+  }, []);
+
+  const setFalseAdministrationValue = useCallback(() => {
+    setIsAdministration(false);
+  }, []);
+
+  const setNameValue = useCallback((evt: ChangeEvent<HTMLInputElement>) => {
+    setName(evt.target.value);
+  }, []);
+
+  const setSalaryValue = useCallback((evt: ChangeEvent<HTMLInputElement>) => {
+    setSalary(evt.target.value);
+  }, []);
+
+  const setPlaceNumberValue = useCallback((evt: ChangeEvent<HTMLInputElement>) => {
+    setPlaceNumber(evt.target.value);
+  }, []);
 
   return (
     <AddWorker
@@ -38,13 +58,14 @@ const AddWorkerContainer = function () {
       onChangeFileHandler={onChangeFileHandler}
       file={file}
       isAdministration={isAdministration}
-      setIsAdministration={setIsAdministration}
+      setTrueAdministrationValue={setTrueAdministrationValue}
+      setFalseAdministrationValue={setFalseAdministrationValue}
       name={name}
-      setName={setName}
+      setNameValue={setNameValue}
       salary={salary}
-      setSalary={setSalary}
+      setSalaryValue={setSalaryValue}
       placeNumber={placeNumber}
-      setPlaceNumber={setPlaceNumber}
+      setPlaceNumberValue={setPlaceNumberValue}
       loading={worker.loading}
       error={worker.error}
     />

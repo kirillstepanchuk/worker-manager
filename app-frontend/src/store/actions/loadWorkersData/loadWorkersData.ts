@@ -24,7 +24,7 @@ interface LoadWorkersDataSuccess {
 
 interface LoadWorkersDataFailed {
   type: LoadWorkersDataActionTypes.LOAD_WORKERS_DATA_FAILED,
-  payload: string,
+  payload: boolean,
 }
 
 export type LoadWorkersDataActions =
@@ -32,7 +32,10 @@ export type LoadWorkersDataActions =
   LoadWorkersDataSuccess |
   LoadWorkersDataFailed;
 
-const loadWorkersData = (page = 1, filterParameters: FilterParameters = {}): LoadWorkersData => ({
+export const loadWorkersData = (
+  page = 1,
+  filterParameters: FilterParameters = {},
+): LoadWorkersData => ({
   type: LoadWorkersDataActionTypes.LOAD_WORKERS_DATA,
   payload: {
     page,
@@ -45,9 +48,7 @@ export const loadWorkersDataSuccess = (data: Worker[]): LoadWorkersDataSuccess =
   payload: data,
 });
 
-export const loadWorkersDataFailed = (error: string): LoadWorkersDataFailed => ({
+export const loadWorkersDataFailed = (error: boolean): LoadWorkersDataFailed => ({
   type: LoadWorkersDataActionTypes.LOAD_WORKERS_DATA_FAILED,
   payload: error,
 });
-
-export default loadWorkersData;

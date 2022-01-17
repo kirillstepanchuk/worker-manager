@@ -3,16 +3,16 @@ import { Worker } from './worker';
 
 export interface InitialState {
   workers: {
-    data: Worker[],
+    data: Worker[] | null,
     loading: boolean,
-    error: string,
+    error: boolean,
   },
   worker: {
-    data: Worker | {},
+    data: Worker | null,
     loading: boolean,
-    error: string,
+    error: boolean,
   },
   filterParameters: {
-    data: FilterParameters | {}
+    data: FilterParameters | null,
   }
 }

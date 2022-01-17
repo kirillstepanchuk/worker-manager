@@ -18,17 +18,17 @@ interface EditWorkerProps {
   worker: Worker,
   onSubmitHandler: (evt: SyntheticEvent) => Promise<void>,
   isAdministration: boolean | undefined,
-  setIsAdministration: (value: boolean) => void,
+  onChangeIsAdministration: (evt: ChangeEvent<HTMLInputElement>) => void,
   editWorkerDataHandler: (evt: ChangeEvent<HTMLInputElement>) => void,
   loading: boolean,
-  error: string,
+  error: boolean,
 }
 
 const EditWorker: FC<EditWorkerProps> = function ({
   worker,
   onSubmitHandler,
   isAdministration,
-  setIsAdministration,
+  onChangeIsAdministration,
   editWorkerDataHandler,
   loading,
   error,
@@ -51,11 +51,7 @@ const EditWorker: FC<EditWorkerProps> = function ({
   }
 
   return (
-    <CardContainer
-      encType="multipart/form-data"
-      method="patch"
-      onSubmit={onSubmitHandler}
-    >
+    <CardContainer onSubmit={onSubmitHandler}>
       <TopInfoContainer>
         <FormControl
           component="fieldset"
@@ -65,14 +61,9 @@ const EditWorker: FC<EditWorkerProps> = function ({
             Тип сотрудников:
           </FormLabel>
           <RadioGroup
-            value={worker.positionType || 'administration'}
+            value={worker?.positionType || 'administration'}
             name="positionType"
-            onChange={(evt) => {
-              setIsAdministration(
-                evt.target.value === 'administration',
-              );
-              editWorkerDataHandler(evt);
-            }}
+            onChange={onChangeIsAdministration}
           >
             <FormControlLabel
               value="administration"
@@ -89,7 +80,7 @@ const EditWorker: FC<EditWorkerProps> = function ({
       </TopInfoContainer>
 
       <TextField
-        value={worker.name || ''}
+        value={worker?.name || ''}
         style={{ marginTop: '5px' }}
         fullWidth
         id="standard-basic"
@@ -99,7 +90,7 @@ const EditWorker: FC<EditWorkerProps> = function ({
         onChange={editWorkerDataHandler}
       />
       <TextField
-        value={worker.salary || ''}
+        value={worker?.salary || ''}
         style={{ marginTop: '5px' }}
         type="number"
         fullWidth
@@ -117,7 +108,7 @@ const EditWorker: FC<EditWorkerProps> = function ({
               Часы приема:
             </FormLabel>
             <RadioGroup
-              defaultValue={worker.time || ''}
+              defaultValue={worker?.time || ''}
               name="time"
               onChange={editWorkerDataHandler}
             >
@@ -137,7 +128,7 @@ const EditWorker: FC<EditWorkerProps> = function ({
         : (
           <>
             <TextField
-              value={worker.placeNumber || ''}
+              value={worker?.placeNumber || ''}
               style={{ marginTop: '5px' }}
               fullWidth
               type="number"
@@ -152,7 +143,7 @@ const EditWorker: FC<EditWorkerProps> = function ({
                 Обеденное время:
               </FormLabel>
               <RadioGroup
-                value={worker.time || ''}
+                value={worker?.time || ''}
                 name="time"
                 onChange={editWorkerDataHandler}
               >

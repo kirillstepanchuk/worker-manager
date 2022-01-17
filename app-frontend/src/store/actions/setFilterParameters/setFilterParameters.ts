@@ -11,9 +11,7 @@ interface SetFilterParameters {
 
 export type SetFilterParametersActions = SetFilterParameters;
 
-const setFilterParameters = (parameters: FilterParameters): SetFilterParameters => ({
+export const setFilterParameters = (parameters: FilterParameters): SetFilterParameters => ({
   type: SetFilterParametersActionTypes.SET_FILTER_PARAMETERS,
   payload: parameters,
 });
-
-export default setFilterParameters;

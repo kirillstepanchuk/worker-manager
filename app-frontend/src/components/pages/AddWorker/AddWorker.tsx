@@ -22,17 +22,18 @@ import {
 interface AddWorkerProps {
   onSubmitHandler: (evt: SyntheticEvent) => Promise<void>,
   onChangeFileHandler: (evt: ChangeEvent<HTMLInputElement>) => void,
-  file: File | null,
+  file?: File,
   isAdministration: boolean,
-  setIsAdministration: (value: boolean) => void,
+  setTrueAdministrationValue: () => void,
+  setFalseAdministrationValue: () => void,
   name: string,
-  setName: (value: string) => void,
+  setNameValue: (evt: ChangeEvent<HTMLInputElement>) => void,
   salary: string,
-  setSalary: (value: string) => void,
+  setSalaryValue: (evt: ChangeEvent<HTMLInputElement>) => void,
   placeNumber: string,
-  setPlaceNumber: (value: string) => void,
+  setPlaceNumberValue: (evt: ChangeEvent<HTMLInputElement>) => void,
   loading: boolean,
-  error: string,
+  error: boolean,
 }
 
 const AddWorker: FC<AddWorkerProps> = function ({
@@ -40,13 +41,14 @@ const AddWorker: FC<AddWorkerProps> = function ({
   onChangeFileHandler,
   file,
   isAdministration,
-  setIsAdministration,
+  setTrueAdministrationValue,
+  setFalseAdministrationValue,
   name,
-  setName,
+  setNameValue,
   salary,
-  setSalary,
+  setSalaryValue,
   placeNumber,
-  setPlaceNumber,
+  setPlaceNumberValue,
   loading,
   error,
 }) {
@@ -68,11 +70,7 @@ const AddWorker: FC<AddWorkerProps> = function ({
   }
 
   return (
-    <CardContainer
-      encType="multipart/form-data"
-      method="post"
-      onSubmit={onSubmitHandler}
-    >
+    <CardContainer onSubmit={onSubmitHandler}>
       <TopInfoContainer>
         <FileInput
           id="avatar"
@@ -103,13 +101,13 @@ const AddWorker: FC<AddWorkerProps> = function ({
             name="positionType"
           >
             <FormControlLabel
-              onClick={() => setIsAdministration(true)}
+              onClick={setTrueAdministrationValue}
               value="administration"
               control={<Radio />}
               label="Руководство"
             />
             <FormControlLabel
-              onClick={() => setIsAdministration(false)}
+              onClick={setFalseAdministrationValue}
               value="worker"
               control={<Radio />}
               label="Сотрудники"
@@ -126,9 +124,7 @@ const AddWorker: FC<AddWorkerProps> = function ({
         variant="standard"
         name="name"
         value={name}
-        onChange={(evt) => {
-          setName(evt.target.value);
-        }}
+        onChange={setNameValue}
       />
       <TextField
         style={{ marginTop: '5px' }}
@@ -139,9 +135,7 @@ const AddWorker: FC<AddWorkerProps> = function ({
         variant="standard"
         name="salary"
         value={salary}
-        onChange={(evt) => {
-          setSalary(evt.target.value);
-        }}
+        onChange={setSalaryValue}
       />
 
       {isAdministration
@@ -178,9 +172,7 @@ const AddWorker: FC<AddWorkerProps> = function ({
               variant="standard"
               name="placeNumber"
               value={placeNumber}
-              onChange={(evt) => {
-                setPlaceNumber(evt.target.value);
-              }}
+              onChange={setPlaceNumberValue}
             />
             <FormControl component="fieldset">
               <FormLabel component="legend">
