@@ -4,13 +4,13 @@ import { LoadWorkersDataActions, LoadWorkersDataActionTypes } from '../actions/l
 export interface WorkersState {
   data: Worker[],
   loading: boolean,
-  error: string,
+  error: boolean,
 }
 
 const initialState: WorkersState = {
   data: [],
   loading: false,
-  error: '',
+  error: false,
 };
 
 type WorkersActionTypes = LoadWorkersDataActions;
@@ -32,7 +32,7 @@ const workers = (state: WorkersState = initialState, action: WorkersActionTypes)
       return {
         ...state,
         loading: false,
-        error: action.payload,
+        error: true,
       };
     default:
       return state;

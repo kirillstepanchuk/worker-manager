@@ -18,7 +18,7 @@ interface AddWorkerDataSuccess {
 
 interface AddWorkerDataFailed {
   type: AddWorkerDataActionTypes.ADD_WORKER_DATA_FAILED,
-  payload: string,
+  payload: boolean,
 }
 
 export type AddWorkerDataActions = AddWorkerData | AddWorkerDataSuccess | AddWorkerDataFailed;
@@ -33,7 +33,7 @@ export const addWorkerDataSuccess = (worker: WorkerData): AddWorkerDataSuccess =
   payload: worker,
 });
 
-export const addWorkerDataFailed = (error: string): AddWorkerDataFailed => ({
+export const addWorkerDataFailed = (error: boolean): AddWorkerDataFailed => ({
   type: AddWorkerDataActionTypes.ADD_WORKER_DATA_FAILED,
   payload: error,
 });

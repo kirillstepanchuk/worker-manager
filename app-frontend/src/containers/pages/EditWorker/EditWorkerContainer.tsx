@@ -37,12 +37,17 @@ const EditWorkerContainer = function () {
     dispatch(editWorkerState({ [target.name]: target.type === 'number' ? +target.value : target.value }));
   }, []);
 
+  const onChangeIsAdministration = useCallback((evt: ChangeEvent<HTMLInputElement>):void => {
+    setIsAdministration(evt.target.value === 'administration');
+    editWorkerDataHandler(evt);
+  }, []);
+
   return (
     <EditWorker
       worker={worker.data}
       onSubmitHandler={onSubmitHandler}
       isAdministration={isAdministration}
-      setIsAdministration={setIsAdministration}
+      onChangeIsAdministration={onChangeIsAdministration}
       editWorkerDataHandler={editWorkerDataHandler}
       loading={worker.loading}
       error={worker.error}

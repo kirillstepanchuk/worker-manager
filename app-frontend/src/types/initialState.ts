@@ -5,12 +5,12 @@ export interface InitialState {
   workers: {
     data: Worker[] | null,
     loading: boolean,
-    error: string,
+    error: boolean,
   },
   worker: {
     data: Worker | null,
     loading: boolean,
-    error: string,
+    error: boolean,
   },
   filterParameters: {
     data: FilterParameters | null,

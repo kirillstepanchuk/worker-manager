@@ -23,7 +23,7 @@ interface EditWorkerDataSuccess {
 
 interface EditWorkerDataFailed {
   type: EditWorkerDataActionTypes.EDIT_WORKER_DATA_FAILED,
-  payload: string,
+  payload: boolean,
 }
 
 export type EditWorkerDataActions = EditWorkerData | EditWorkerDataSuccess | EditWorkerDataFailed;
@@ -43,7 +43,7 @@ export const editWorkerDataSuccess = (workerData: WorkerEdit): EditWorkerDataSuc
   },
 });
 
-export const editWorkerDataFailed = (error: string): EditWorkerDataFailed => ({
+export const editWorkerDataFailed = (error: boolean): EditWorkerDataFailed => ({
   type: EditWorkerDataActionTypes.EDIT_WORKER_DATA_FAILED,
   payload: error,
 });

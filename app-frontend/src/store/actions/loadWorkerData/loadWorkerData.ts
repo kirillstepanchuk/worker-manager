@@ -20,7 +20,7 @@ interface LoadWorkerDataSuccess {
 
 interface LoadWorkerDataFailed {
   type: LoadWorkerDataActionTypes.LOAD_WORKER_DATA_FAILED,
-  payload: string,
+  payload: boolean,
 }
 
 export type LoadWorkerDataActions = LoadWorkerData | LoadWorkerDataSuccess | LoadWorkerDataFailed;
@@ -37,7 +37,7 @@ export const loadWorkerDataSuccess = (data: WorkerData): LoadWorkerDataSuccess =
   payload: data,
 });
 
-export const loadWorkerDataFailed = (error: string): LoadWorkerDataFailed => ({
+export const loadWorkerDataFailed = (error: boolean): LoadWorkerDataFailed => ({
   type: LoadWorkerDataActionTypes.LOAD_WORKER_DATA_FAILED,
   payload: error,
 });

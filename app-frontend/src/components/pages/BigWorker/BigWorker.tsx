@@ -9,13 +9,14 @@ import {
   ParameterValue,
   Link,
 } from './style';
-import { API_URL } from '../../../constants';
+
 import { Worker } from '../../../types/worker';
+import { API_URL } from '../../../constants';
 
 interface BigWorkerProps {
   worker: Worker,
   loading: boolean,
-  error: string,
+  error: boolean,
 }
 
 const BigWorker: FC<BigWorkerProps> = function ({
@@ -35,8 +36,6 @@ const BigWorker: FC<BigWorkerProps> = function ({
     return (
       <CardContainer>
         Упс... Не получилось загрузить пользователя. Попробуйте позже.
-        {' '}
-        {error}
         <Link to="/workers">Вернуться</Link>
       </CardContainer>
     );

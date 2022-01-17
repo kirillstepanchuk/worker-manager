@@ -12,7 +12,7 @@ export interface Worker {
 export interface WorkerState {
   data: Worker,
   loading: boolean,
-  error: string
+  error: boolean
 }
 
 export interface WorkerEdit {

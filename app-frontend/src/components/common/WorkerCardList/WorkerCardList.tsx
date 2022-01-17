@@ -8,7 +8,7 @@ import { Worker } from '../../../types/worker';
 interface WorkerCardListProps {
   workers: Worker[],
   loading: boolean,
-  error: string,
+  error: boolean,
 }
 
 const WorkerCardList: FC<WorkerCardListProps> = function ({
@@ -31,8 +31,6 @@ const WorkerCardList: FC<WorkerCardListProps> = function ({
       <Wrapper>
         <CenterWrapper>
           Упс... Не получилось загрузить пользователей. Попробуйте позже.
-          {' '}
-          {error}
         </CenterWrapper>
       </Wrapper>
     );

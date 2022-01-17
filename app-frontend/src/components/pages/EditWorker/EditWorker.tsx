@@ -18,17 +18,17 @@ interface EditWorkerProps {
   worker: Worker,
   onSubmitHandler: (evt: SyntheticEvent) => Promise<void>,
   isAdministration: boolean | undefined,
-  setIsAdministration: (value: boolean) => void,
+  onChangeIsAdministration: (evt: ChangeEvent<HTMLInputElement>) => void,
   editWorkerDataHandler: (evt: ChangeEvent<HTMLInputElement>) => void,
   loading: boolean,
-  error: string,
+  error: boolean,
 }
 
 const EditWorker: FC<EditWorkerProps> = function ({
   worker,
   onSubmitHandler,
   isAdministration,
-  setIsAdministration,
+  onChangeIsAdministration,
   editWorkerDataHandler,
   loading,
   error,
@@ -45,19 +45,13 @@ const EditWorker: FC<EditWorkerProps> = function ({
     return (
       <CardContainer>
         Упс... Не получилось загрузить пользователя. Попробуйте позже.
-        {' '}
-        {error}
         <Link to="/workers">Вернуться</Link>
       </CardContainer>
     );
   }
 
   return (
-    <CardContainer
-      encType="multipart/form-data"
-      method="patch"
-      onSubmit={onSubmitHandler}
-    >
+    <CardContainer onSubmit={onSubmitHandler}>
       <TopInfoContainer>
         <FormControl
           component="fieldset"
@@ -69,12 +63,7 @@ const EditWorker: FC<EditWorkerProps> = function ({
           <RadioGroup
             value={worker?.positionType || 'administration'}
             name="positionType"
-            onChange={(evt) => {
-              setIsAdministration(
-                evt.target.value === 'administration',
-              );
-              editWorkerDataHandler(evt);
-            }}
+            onChange={onChangeIsAdministration}
           >
             <FormControlLabel
               value="administration"
