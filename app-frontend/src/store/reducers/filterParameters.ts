@@ -1,7 +1,7 @@
 import { FilterParameters } from '../../types/filterParameters';
 import { SetFilterParametersActions, SetFilterParametersActionTypes } from '../actions/setFilterParameters/setFilterParameters';
 
-interface FilterParametersState {
+export interface FilterParametersState {
   data: FilterParameters
 }
 

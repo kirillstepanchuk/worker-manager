@@ -3,23 +3,14 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import { InitialState } from '../../../types/initialState';
 import WorkerCardListContainer from '../WorkerCardListContainer';
 import { workerMockList } from '../../../mocks/store/constants';
-import createMockStore from '../../../mocks/store/mockStore';
+import createMockStore, { InitialMockState } from '../../../mocks/store/mockStore';
 import { WorkersState } from '../../../store/reducers/workers';
 
 const setup = (workers: WorkersState) => {
-  const initialState: InitialState = {
+  const initialState: InitialMockState = {
     workers,
-    worker: {
-      data: {},
-      loading: false,
-      error: '',
-    },
-    filterParameters: {
-      data: {},
-    },
   };
   const store = createMockStore(initialState);
   render(<Provider store={store}><WorkerCardListContainer /></Provider>, { wrapper: MemoryRouter });

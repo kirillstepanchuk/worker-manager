@@ -4,7 +4,7 @@ import { EditWorkerDataActions, EditWorkerDataActionTypes } from '../actions/edi
 import { EditWorkerStateActions, EditWorkerStateActionTypes } from '../actions/editWorkerState/editWorkerState';
 import { WorkerData, WorkerEdit, WorkerEditData } from '../../types/worker';
 
-interface WorkerState {
+export interface WorkerState {
   data: WorkerData | WorkerEdit | WorkerEditData,
   loading: boolean,
   error: string,
