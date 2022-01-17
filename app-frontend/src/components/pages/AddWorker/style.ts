@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { Link as RouterLink } from 'react-router-dom';
 
 export const CardContainer = styled.form`
+    text-align: center;
+
     width: 280px;
 
     margin: 0 auto;
@@ -10,7 +12,7 @@ export const CardContainer = styled.form`
     flex-direction: column;
 
     @media (min-width: 768px) {
-        width: 500px;
+        width: 530px;
     }
 `;
 

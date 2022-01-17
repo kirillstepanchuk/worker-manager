@@ -62,6 +62,8 @@ const AddWorker: FC<AddWorkerProps> = function ({
     return (
       <CardContainer>
         Упс... Не получилось добавить пользователя. Попробуйте позже.
+        {' '}
+        {error}
         <Link to="/workers">Вернуться</Link>
       </CardContainer>
     );

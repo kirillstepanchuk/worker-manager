@@ -25,7 +25,7 @@ interface LoadWorkerDataFailed {
 
 export type LoadWorkerDataActions = LoadWorkerData | LoadWorkerDataSuccess | LoadWorkerDataFailed;
 
-const loadWorkerData = (id: string): LoadWorkerData => ({
+export const loadWorkerData = (id: string): LoadWorkerData => ({
   type: LoadWorkerDataActionTypes.LOAD_WORKER_DATA,
   payload: {
     id,
@@ -41,5 +41,3 @@ export const loadWorkerDataFailed = (error: string): LoadWorkerDataFailed => ({
   type: LoadWorkerDataActionTypes.LOAD_WORKER_DATA_FAILED,
   payload: error,
 });
-
-export default loadWorkerData;

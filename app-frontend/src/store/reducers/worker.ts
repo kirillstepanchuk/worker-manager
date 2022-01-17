@@ -5,12 +5,12 @@ import { EditWorkerStateActions, EditWorkerStateActionTypes } from '../actions/e
 import { WorkerData, WorkerEdit, WorkerEditData } from '../../types/worker';
 
 interface WorkerState {
-  data: WorkerData | WorkerEdit | WorkerEditData,
+  data: WorkerData | WorkerEdit | WorkerEditData | null,
   loading: boolean,
   error: string,
 }
 const initialState: WorkerState = {
-  data: {},
+  data: null,
   loading: false,
   error: '',
 };

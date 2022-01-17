@@ -32,7 +32,10 @@ export type LoadWorkersDataActions =
   LoadWorkersDataSuccess |
   LoadWorkersDataFailed;
 
-const loadWorkersData = (page = 1, filterParameters: FilterParameters = {}): LoadWorkersData => ({
+export const loadWorkersData = (
+  page = 1,
+  filterParameters: FilterParameters = {},
+): LoadWorkersData => ({
   type: LoadWorkersDataActionTypes.LOAD_WORKERS_DATA,
   payload: {
     page,
@@ -49,5 +52,3 @@ export const loadWorkersDataFailed = (error: string): LoadWorkersDataFailed => (
   type: LoadWorkersDataActionTypes.LOAD_WORKERS_DATA_FAILED,
   payload: error,
 });
-
-export default loadWorkersData;

@@ -2,11 +2,11 @@ import { FilterParameters } from '../../types/filterParameters';
 import { SetFilterParametersActions, SetFilterParametersActionTypes } from '../actions/setFilterParameters/setFilterParameters';
 
 interface FilterParametersState {
-  data: FilterParameters
+  data: FilterParameters,
 }
 
 const initialState: FilterParametersState = {
-  data: {},
+  data: null,
 };
 
 type FilterParametersActionTypes = SetFilterParametersActions;

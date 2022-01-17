@@ -9,7 +9,7 @@ import {
   Link,
   LinkConteiner,
 } from './style';
-import { API_URL } from '../../../store/constants';
+import { API_URL } from '../../../constants';
 import { Worker } from '../../../types/worker';
 
 interface WorkerCardProps {

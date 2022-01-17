@@ -31,6 +31,8 @@ const WorkerCardList: FC<WorkerCardListProps> = function ({
       <Wrapper>
         <CenterWrapper>
           Упс... Не получилось загрузить пользователей. Попробуйте позже.
+          {' '}
+          {error}
         </CenterWrapper>
       </Wrapper>
     );

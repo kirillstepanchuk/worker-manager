@@ -1,11 +1,11 @@
 import React, {
-  ChangeEvent, SyntheticEvent, useState,
+  ChangeEvent, SyntheticEvent, useCallback, useState,
 } from 'react';
 import { Dispatch } from 'redux';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 
 import AddWorker from '../../../components/pages/AddWorker/AddWorker';
-import addWorkerData from '../../../store/actions/addWorkerData/addWorkerData';
+import { addWorkerData } from '../../../store/actions/addWorkerData/addWorkerData';
 import { WorkerState } from '../../../types/worker';
 
 const AddWorkerContainer = function () {
@@ -18,19 +18,19 @@ const AddWorkerContainer = function () {
   const dispatch: Dispatch = useDispatch();
   const worker: WorkerState = useSelector((state:RootStateOrAny) => state.worker);
 
-  const onSubmitHandler = async (evt: SyntheticEvent):Promise<void> => {
+  const onSubmitHandler = useCallback(async (evt: SyntheticEvent):Promise<void> => {
     evt.preventDefault();
 
     const target = evt.target as HTMLFormElement;
     const formData: FormData = new FormData(target);
 
     dispatch(addWorkerData(formData));
-  };
+  }, []);
 
-  const onChangeFileHandler = (evt: ChangeEvent<HTMLInputElement>):void => {
+  const onChangeFileHandler = useCallback((evt: ChangeEvent<HTMLInputElement>):void => {
     const files = evt.currentTarget.files as FileList;
     setFile(files[0]);
-  };
+  }, []);
 
   return (
     <AddWorker

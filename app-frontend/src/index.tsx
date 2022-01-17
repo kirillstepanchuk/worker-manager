@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ConnectedRouter } from 'connected-react-router';
-// import { BrowserRouter } from 'react-router-dom';
 import 'regenerator-runtime/runtime';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';

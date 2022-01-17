@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import loadWorkersData from '../../../store/actions/loadWorkersData/loadWorkersData';
+import { loadWorkersData } from '../../../store/actions/loadWorkersData/loadWorkersData';
 import WorkerCardList from '../../../components/common/WorkerCardList/WorkerCardList';
 import { WorkersState } from '../../../store/reducers/workers';
 

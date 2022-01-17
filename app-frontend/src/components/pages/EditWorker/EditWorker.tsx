@@ -45,6 +45,8 @@ const EditWorker: FC<EditWorkerProps> = function ({
     return (
       <CardContainer>
         Упс... Не получилось загрузить пользователя. Попробуйте позже.
+        {' '}
+        {error}
         <Link to="/workers">Вернуться</Link>
       </CardContainer>
     );
@@ -65,7 +67,7 @@ const EditWorker: FC<EditWorkerProps> = function ({
             Тип сотрудников:
           </FormLabel>
           <RadioGroup
-            value={worker.positionType || 'administration'}
+            value={worker?.positionType || 'administration'}
             name="positionType"
             onChange={(evt) => {
               setIsAdministration(
@@ -89,7 +91,7 @@ const EditWorker: FC<EditWorkerProps> = function ({
       </TopInfoContainer>
 
       <TextField
-        value={worker.name || ''}
+        value={worker?.name || ''}
         style={{ marginTop: '5px' }}
         fullWidth
         id="standard-basic"
@@ -99,7 +101,7 @@ const EditWorker: FC<EditWorkerProps> = function ({
         onChange={editWorkerDataHandler}
       />
       <TextField
-        value={worker.salary || ''}
+        value={worker?.salary || ''}
         style={{ marginTop: '5px' }}
         type="number"
         fullWidth
@@ -117,7 +119,7 @@ const EditWorker: FC<EditWorkerProps> = function ({
               Часы приема:
             </FormLabel>
             <RadioGroup
-              defaultValue={worker.time || ''}
+              defaultValue={worker?.time || ''}
               name="time"
               onChange={editWorkerDataHandler}
             >
@@ -137,7 +139,7 @@ const EditWorker: FC<EditWorkerProps> = function ({
         : (
           <>
             <TextField
-              value={worker.placeNumber || ''}
+              value={worker?.placeNumber || ''}
               style={{ marginTop: '5px' }}
               fullWidth
               type="number"
@@ -152,7 +154,7 @@ const EditWorker: FC<EditWorkerProps> = function ({
                 Обеденное время:
               </FormLabel>
               <RadioGroup
-                value={worker.time || ''}
+                value={worker?.time || ''}
                 name="time"
                 onChange={editWorkerDataHandler}
               >

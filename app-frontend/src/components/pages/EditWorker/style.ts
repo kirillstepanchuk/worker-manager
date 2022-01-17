@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { Link as RouterLink } from 'react-router-dom';
 
 export const CardContainer = styled.form`
-    width: 500px;
+    text-align: center;
+
+    width: 530px;
 
     margin: 0 auto;
     margin-top: 20px;

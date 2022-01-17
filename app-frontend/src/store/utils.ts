@@ -1,4 +1,5 @@
 export default function handleError(e: unknown) {
+  console.log('e: ', e);
   if (e instanceof RangeError) {
     return `Range error: ${e.message}`;
   } if (e instanceof TypeError) {

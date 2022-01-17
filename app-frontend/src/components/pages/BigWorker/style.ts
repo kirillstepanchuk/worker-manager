@@ -4,7 +4,9 @@ import { Link as RouterLink } from 'react-router-dom';
 export const CardContainer = styled.div`
     position: relative;
 
-    width: 500px;
+    text-align: center;
+
+    width: 530px;
 
     margin: 0 auto;
     margin-top: 20px;

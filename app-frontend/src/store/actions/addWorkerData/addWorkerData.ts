@@ -23,7 +23,7 @@ interface AddWorkerDataFailed {
 
 export type AddWorkerDataActions = AddWorkerData | AddWorkerDataSuccess | AddWorkerDataFailed;
 
-const addWorkerData = (worker: FormData): AddWorkerData => ({
+export const addWorkerData = (worker: FormData): AddWorkerData => ({
   type: AddWorkerDataActionTypes.ADD_WORKER_DATA,
   payload: worker,
 });
@@ -37,5 +37,3 @@ export const addWorkerDataFailed = (error: string): AddWorkerDataFailed => ({
   type: AddWorkerDataActionTypes.ADD_WORKER_DATA_FAILED,
   payload: error,
 });
-
-export default addWorkerData;

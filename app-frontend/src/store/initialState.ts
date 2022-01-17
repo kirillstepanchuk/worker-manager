@@ -7,12 +7,12 @@ const initialState: InitialState = {
     error: '',
   },
   worker: {
-    data: {},
+    data: null,
     loading: false,
     error: '',
   },
   filterParameters: {
-    data: {},
+    data: null,
   },
 };
 
