@@ -5,7 +5,7 @@ export interface FilterParametersState {
   data: FilterParameters
 }
 
-const initialState: FilterParametersState = {
+export const initialState: FilterParametersState = {
   data: null,
 };
 

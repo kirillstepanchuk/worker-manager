@@ -9,7 +9,8 @@ export interface WorkerState {
   loading: boolean,
   error: boolean,
 }
-const initialState: WorkerState = {
+
+export const initialState: WorkerState = {
   data: null,
   loading: false,
   error: false,

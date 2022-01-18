@@ -55,7 +55,7 @@ const AddWorker: FC<AddWorkerProps> = function ({
   if (loading) {
     return (
       <CardContainer>
-        <LinearProgress />
+        <LinearProgress data-testid="loading" />
       </CardContainer>
     );
   }

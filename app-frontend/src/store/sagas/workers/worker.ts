@@ -26,7 +26,7 @@ import {
   WorkerData,
 } from '../../../types/worker';
 import { loadWorker, addWorker, editWorker } from '../api/worker.api';
-import handleError from '../../utils';
+import { handleError } from '../../utils';
 
 export function* loadWorkerData(action: LoadWorkerData) {
   try {

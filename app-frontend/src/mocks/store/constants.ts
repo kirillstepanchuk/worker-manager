@@ -1,3 +1,12 @@
+export const mockPage = 1;
+
+export const mockFilterPrameters = {
+  positionType: 'all',
+  sortingType: 'nameSorting',
+};
+
+export const mockId = 'mockId';
+
 export const worker = {
   avatar: 'some-img.png',
   name: 'Kirill',
@@ -6,6 +15,29 @@ export const worker = {
   time: '08:00 - 14:00',
   __v: 4343,
   _id: 'f322142342r233f',
+};
+
+export const workerMock = {
+  initial: {
+    data: null,
+    loading: false,
+    error: false,
+  },
+  success: {
+    data: worker,
+    loading: false,
+    error: false,
+  },
+  failed: {
+    data: null,
+    loading: false,
+    error: true,
+  },
+  loading: {
+    data: null,
+    loading: true,
+    error: false,
+  },
 };
 
 const workerList = [

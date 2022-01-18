@@ -7,7 +7,7 @@ export interface WorkersState {
   error: boolean,
 }
 
-const initialState: WorkersState = {
+export const initialState: WorkersState = {
   data: [],
   loading: false,
   error: false,

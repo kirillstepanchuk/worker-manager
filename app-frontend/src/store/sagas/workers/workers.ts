@@ -1,3 +1,4 @@
+import { SagaIterator } from 'redux-saga';
 import { call, put, takeEvery } from 'redux-saga/effects';
 
 import { Worker } from '../../../types/worker';
@@ -7,10 +8,10 @@ import {
   loadWorkersDataFailed,
   loadWorkersDataSuccess,
 } from '../../actions/loadWorkersData/loadWorkersData';
-import handleError from '../../utils';
-import loadWorkers from '../api/workers.api';
+import { handleError } from '../../utils';
+import { loadWorkers } from '../api/workers.api';
 
-export function* loadWorkersData(action: LoadWorkersData) {
+export function* getWorkersData(action: LoadWorkersData): SagaIterator<void> {
   try {
     const responseData: Worker[] = yield call(loadWorkers, action.payload);
 
@@ -20,5 +21,5 @@ export function* loadWorkersData(action: LoadWorkersData) {
   }
 }
 export default function* workersWatcher() {
-  yield takeEvery(LoadWorkersDataActionTypes.LOAD_WORKERS_DATA, loadWorkersData);
+  yield takeEvery(LoadWorkersDataActionTypes.LOAD_WORKERS_DATA, getWorkersData);
 }
