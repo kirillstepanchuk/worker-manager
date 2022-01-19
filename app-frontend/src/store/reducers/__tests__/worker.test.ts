@@ -64,10 +64,10 @@ describe('worker reducer', () => {
 
   describe('data should be', () => {
     it('dispatch LOAD_WORKER_SUCCESS action', () => {
-      const reducer = worker(initialState, loadWorkerDataSuccess(workerMock.success));
+      const reducer = worker(initialState, loadWorkerDataSuccess(workerMock.success.data));
       expect(reducer).toEqual({
         ...initialState,
-        data: workerMock.success,
+        data: workerMock.success.data,
       });
     });
 

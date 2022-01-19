@@ -83,3 +83,7 @@ export const workerMockList = {
     error: false,
   },
 };
+
+export const mockError = {
+  message: 'SomeError',
+};

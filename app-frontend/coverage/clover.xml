@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1642497004879" clover="3.2.0">
-  <project timestamp="1642497004880" name="All files">
-    <metrics statements="325" coveredstatements="299" conditionals="137" coveredconditionals="93" methods="66" coveredmethods="51" elements="528" coveredelements="443" complexity="0" loc="325" ncloc="325" packages="18" files="31" classes="31"/>
+<coverage generated="1642523658922" clover="3.2.0">
+  <project timestamp="1642523658922" name="All files">
+    <metrics statements="386" coveredstatements="341" conditionals="149" coveredconditionals="94" methods="80" coveredmethods="56" elements="615" coveredelements="491" complexity="0" loc="386" ncloc="386" packages="20" files="35" classes="35"/>
     <package name="src">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="constants.ts" path="S:\bred\Проекты\Тестовое задание\MERN\app-frontend\src\constants.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="3" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
       </file>
     </package>
     <package name="src.components.common.Filtration">
@@ -320,16 +320,17 @@
       </file>
     </package>
     <package name="src.mocks.store">
-      <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="constants.ts" path="S:\bred\Проекты\Тестовое задание\MERN\app-frontend\src\mocks\store\constants.ts">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="7" type="stmt"/>
-        <line num="3" count="7" type="stmt"/>
-        <line num="8" count="7" type="stmt"/>
-        <line num="10" count="7" type="stmt"/>
-        <line num="20" count="7" type="stmt"/>
-        <line num="43" count="7" type="stmt"/>
-        <line num="64" count="7" type="stmt"/>
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="10" type="stmt"/>
+        <line num="3" count="10" type="stmt"/>
+        <line num="8" count="10" type="stmt"/>
+        <line num="10" count="10" type="stmt"/>
+        <line num="20" count="10" type="stmt"/>
+        <line num="43" count="10" type="stmt"/>
+        <line num="64" count="10" type="stmt"/>
+        <line num="87" count="10" type="stmt"/>
       </file>
       <file name="mockStore.ts" path="S:\bred\Проекты\Тестовое задание\MERN\app-frontend\src\mocks\store\mockStore.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -342,44 +343,44 @@
       </file>
     </package>
     <package name="src.store">
-      <metrics statements="9" coveredstatements="6" conditionals="1" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <metrics statements="9" coveredstatements="8" conditionals="1" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="utils.ts" path="S:\bred\Проекты\Тестовое задание\MERN\app-frontend\src\store\utils.ts">
-        <metrics statements="9" coveredstatements="6" conditionals="1" coveredconditionals="0" methods="3" coveredmethods="2"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="0" type="cond" truecount="0" falsecount="1"/>
+        <metrics statements="9" coveredstatements="8" conditionals="1" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="6" type="cond" truecount="0" falsecount="1"/>
         <line num="5" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="7" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="21" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.store.actions.addWorkerData">
       <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
       <file name="addWorkerData.ts" path="S:\bred\Проекты\Тестовое задание\MERN\app-frontend\src\store\actions\addWorkerData\addWorkerData.ts">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
-        <line num="3" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
-        <line num="36" count="2" type="stmt"/>
+        <line num="3" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="36" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.store.actions.editWorkerData">
       <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
       <file name="editWorkerData.ts" path="S:\bred\Проекты\Тестовое задание\MERN\app-frontend\src\store\actions\editWorkerData\editWorkerData.ts">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
-        <line num="3" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
-        <line num="46" count="2" type="stmt"/>
+        <line num="3" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="39" count="3" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.store.actions.editWorkerState">
@@ -395,49 +396,49 @@
       <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
       <file name="loadWorkerData.ts" path="S:\bred\Проекты\Тестовое задание\MERN\app-frontend\src\store\actions\loadWorkerData\loadWorkerData.ts">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
-        <line num="3" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
-        <line num="6" count="3" type="stmt"/>
-        <line num="28" count="8" type="stmt"/>
-        <line num="35" count="3" type="stmt"/>
-        <line num="40" count="3" type="stmt"/>
+        <line num="3" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="28" count="10" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.store.actions.loadWorkersData">
       <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
       <file name="loadWorkersData.ts" path="S:\bred\Проекты\Тестовое задание\MERN\app-frontend\src\store\actions\loadWorkersData\loadWorkersData.ts">
         <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
-        <line num="4" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="5" count="3" type="stmt"/>
-        <line num="6" count="3" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="35" count="3" type="stmt"/>
-        <line num="38" count="5" type="stmt"/>
-        <line num="46" count="3" type="stmt"/>
-        <line num="51" count="3" type="stmt"/>
+        <line num="4" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="38" count="7" type="stmt"/>
+        <line num="46" count="4" type="stmt"/>
+        <line num="51" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.store.actions.setFilterParameters">
-      <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
+      <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
       <file name="setFilterParameters.ts" path="S:\bred\Проекты\Тестовое задание\MERN\app-frontend\src\store\actions\setFilterParameters\setFilterParameters.ts">
-        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
-        <line num="3" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="3" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.store.reducers">
-      <metrics statements="35" coveredstatements="32" conditionals="20" coveredconditionals="15" methods="3" coveredmethods="3"/>
+      <metrics statements="35" coveredstatements="33" conditionals="20" coveredconditionals="16" methods="3" coveredmethods="3"/>
       <file name="filterParameters.ts" path="S:\bred\Проекты\Тестовое задание\MERN\app-frontend\src\store\reducers\filterParameters.ts">
-        <metrics statements="7" coveredstatements="6" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="18" count="6" type="cond" truecount="1" falsecount="1"/>
-        <line num="20" count="0" type="stmt"/>
+        <metrics statements="7" coveredstatements="7" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="18" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="1" type="stmt"/>
         <line num="24" count="6" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
       </file>
       <file name="worker.ts" path="S:\bred\Проекты\Тестовое задание\MERN\app-frontend\src\store\reducers\worker.ts">
         <metrics statements="19" coveredstatements="18" conditionals="12" coveredconditionals="10" methods="1" coveredmethods="1"/>
@@ -472,6 +473,84 @@
         <line num="32" count="1" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.store.sagas.api">
+      <metrics statements="21" coveredstatements="8" conditionals="12" coveredconditionals="0" methods="8" coveredmethods="0"/>
+      <file name="worker.api.ts" path="S:\bred\Проекты\Тестовое задание\MERN\app-frontend\src\store\sagas\api\worker.api.ts">
+        <metrics statements="11" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+      </file>
+      <file name="workers.api.ts" path="S:\bred\Проекты\Тестовое задание\MERN\app-frontend\src\store\sagas\api\workers.api.ts">
+        <metrics statements="10" coveredstatements="3" conditionals="12" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="12" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="13" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.store.sagas.workers">
+      <metrics statements="39" coveredstatements="30" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="3"/>
+      <file name="worker.ts" path="S:\bred\Проекты\Тестовое задание\MERN\app-frontend\src\store\sagas\workers\worker.ts">
+        <metrics statements="28" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+      </file>
+      <file name="workers.ts" path="S:\bred\Проекты\Тестовое задание\MERN\app-frontend\src\store\sagas\workers\workers.ts">
+        <metrics statements="11" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
       </file>
     </package>
   </project>
