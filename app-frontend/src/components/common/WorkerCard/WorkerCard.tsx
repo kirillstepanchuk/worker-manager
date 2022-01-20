@@ -9,20 +9,17 @@ import {
   Link,
   LinkConteiner,
 } from './style';
-import { API_URL } from '../../../store/constants';
-import { Location } from '../../../types/location';
+import { API_URL } from '../../../constants';
 import { Worker } from '../../../types/worker';
 
 interface WorkerCardProps {
   worker: Worker,
   isAdministration: boolean,
-  location: Location
 }
 
 const WorkerCard: FC<WorkerCardProps> = function ({
   worker,
   isAdministration,
-  location,
 }) {
   return (
     <CardContainer>
@@ -57,20 +54,10 @@ const WorkerCard: FC<WorkerCardProps> = function ({
           </>
         )}
       <LinkConteiner>
-        <Link
-          to={{
-            pathname: `/worker/${worker._id}`,
-            state: { background: location },
-          }}
-        >
+        <Link to={`/worker/${worker._id}`}>
           Открыть
         </Link>
-        <Link
-          to={{
-            pathname: `/worker-edit/${worker._id}`,
-            state: { background: location },
-          }}
-        >
+        <Link to={`/worker-edit/${worker._id}`}>
           Изменить
         </Link>
       </LinkConteiner>

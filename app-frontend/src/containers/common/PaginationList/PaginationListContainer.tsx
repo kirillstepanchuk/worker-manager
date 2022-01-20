@@ -1,8 +1,8 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import loadWorkersData from '../../../store/actions/loadWorkersData/loadWorkersData';
+import { loadWorkersData } from '../../../store/actions/loadWorkersData/loadWorkersData';
 import root from '../../../store/reducers/root';
 import { FilterParameters } from '../../../types/filterParameters';
 import PaginationList from '../../../components/common/PaginationList/PaginationList';
@@ -13,14 +13,15 @@ const PaginationListContainer = function () {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const dispatch: Dispatch = useDispatch();
+
   const filterParameters: FilterParameters = useSelector(
-    (state: RootState) => state.filterParameters,
+    (state: RootState) => state.filterParameters.data,
   );
 
-  const handleChange = (evt: ChangeEvent<any>, value: number):void => {
+  const handleChange = useCallback((evt: ChangeEvent<any>, value: number):void => {
     setCurrentPage(value);
     dispatch(loadWorkersData(value, filterParameters));
-  };
+  }, [filterParameters]);
 
   return (
     <PaginationList

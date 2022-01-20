@@ -15,5 +15,35 @@
 		"react"
 	],
 	"rules": {
+		"no-underscore-dangle": ["error", { "allow": ["_id"] }],
+		"@typescript-eslint/default-param-last": "off",
+		"react/require-default-props": "off"
+	},
+	"overrides": [
+    {
+		"files": ["./**/webpack.**.js"],
+		"rules": {
+			"import/no-extraneous-dependencies": 0,
+			"@typescript-eslint/no-var-requires": 0,
+			"@typescript-eslint/explicit-function-return-type": 0
+		}
+    },
+    {
+		"files": [".eslintrc"],
+		"rules": {
+			"@typescript-eslint/no-var-requires": 0,
+			"@typescript-eslint/explicit-function-return-type": 0
+		}
+    }
+	],
+	"settings": {
+		"react": {
+			"version": "detect"
+		},
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".jsx", ".ts", ".tsx"]
+			}
+		}
 	}
 }

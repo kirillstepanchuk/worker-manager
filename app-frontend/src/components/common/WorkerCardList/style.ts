@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
     width: 280px;
 
+    margin: 0 auto;
     margin-top: 20px;
 
     display: flex;
@@ -18,6 +19,10 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const TextWrapper = styled.div`
+export const CenterWrapper = styled.div`
+    text-align: center;
+
     margin: 0 auto;
+
+    width: 550px;
 `;

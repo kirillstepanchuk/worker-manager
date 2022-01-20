@@ -1,14 +1,22 @@
-import initialState from '../initialState';
-import { SET_FILTER_PARAMETERS } from '../constants';
-import { FilterParametersData } from '../../types/filterParameters';
-import { WorkerAction } from '../../types/worker';
+import { FilterParameters } from '../../types/filterParameters';
+import { SetFilterParametersActions, SetFilterParametersActionTypes } from '../actions/setFilterParameters/setFilterParameters';
+
+interface FilterParametersState {
+  data: FilterParameters,
+}
+
+const initialState: FilterParametersState = {
+  data: null,
+};
+
+type FilterParametersActionTypes = SetFilterParametersActions;
 
 const filterParameters = (
-  state: FilterParametersData = initialState.filterParameters,
-  action: WorkerAction,
-) => {
+  state: FilterParametersState = initialState,
+  action: FilterParametersActionTypes,
+): FilterParametersState => {
   switch (action.type) {
-    case SET_FILTER_PARAMETERS:
+    case SetFilterParametersActionTypes.SET_FILTER_PARAMETERS:
       return {
         data: action.payload,
       };
