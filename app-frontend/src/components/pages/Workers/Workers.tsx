@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Header from '../../../containers/common/HeaderContainer';
-import Filtration from '../../../containers/common/FiltrationContainer';
-import WorkerCardList from '../../../containers/common/WorkerCardListContainer';
-import PaginationList from '../../../containers/common/PaginationListContainer';
+import Header from '../../../containers/HeaderContainer';
+import Filtration from '../../../containers/FiltrationContainer';
+import WorkerCardList from '../../../containers/WorkerCardListContainer';
+import PaginationList from '../../../containers/PaginationListContainer';
 
 const Workers = function () {
   return (

@@ -77,8 +77,9 @@ const worker = (state: WorkerState = initialState, action: WorkerActionTypes): W
       };
     case EditWorkerStateActionTypes.EDIT_WORKER_STATE:
       return {
-        ...state,
         data: { ...state.data, ...action.payload },
+        loading: false,
+        error: false,
       };
     default:
       return state;

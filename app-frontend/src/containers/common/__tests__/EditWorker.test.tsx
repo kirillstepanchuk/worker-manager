@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import user from '@testing-library/user-event';
 import { MockStore } from 'redux-mock-store';
 
-import EditWorkerContainer from '../EditWorkerContainer';
+import EditWorkerContainer from '../../EditWorkerContainer';
 import { workerMock } from '../../../mocks/store/constants';
 import createMockStore, { InitialMockState } from '../../../mocks/store/mockStore';
 import { WorkerState } from '../../../store/reducers/worker';

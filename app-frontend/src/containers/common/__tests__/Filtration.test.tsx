@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import user from '@testing-library/user-event';
 
 import filterParameters from '../../../store/reducers/filterParameters';
-import FiltrationContainer from '../FiltrationContainer';
+import FiltrationContainer from '../../FiltrationContainer';
 
 const createTestStore = () => {
   const store = createStore(
@@ -32,15 +32,19 @@ describe('Filtration container', () => {
     expect(screen.getByRole('radio', { name: 'ФИО' })).toBeChecked();
   });
 
-  it('should show/hide additional parameters depending on the type of worker', () => {
+  it('should hide additional parameters by default', () => {
     expect(screen.queryByText('Часы приема:')).not.toBeInTheDocument();
     expect(screen.queryByText('Обеденное время:')).not.toBeInTheDocument();
+  });
 
+  it('should show administration addintional parameters', () => {
     user.click(screen.getByRole('radio', { name: 'Руководство' }));
     expect(screen.getByRole('radio', { name: 'Руководство' })).toBeChecked();
     expect(screen.getByText('Часы приема:')).toBeInTheDocument();
     expect(screen.queryByText('Обеденное время:')).not.toBeInTheDocument();
+  });
 
+  it('should show worekrs addintional parameters', () => {
     user.click(screen.getByRole('radio', { name: 'Сотрудники' }));
     expect(screen.getByRole('radio', { name: 'Сотрудники' })).toBeChecked();
     expect(screen.queryByText('Часы приема:')).not.toBeInTheDocument();

@@ -2,13 +2,13 @@ import { Worker } from '../../types/worker';
 import { LoadWorkersDataActions, LoadWorkersDataActionTypes } from '../actions/loadWorkersData/loadWorkersData';
 
 export interface WorkersState {
-  data: Worker[],
+  data: Worker[] | null,
   loading: boolean,
   error: boolean,
 }
 
 export const initialState: WorkersState = {
-  data: [],
+  data: null,
   loading: false,
   error: false,
 };

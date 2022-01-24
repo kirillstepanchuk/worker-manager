@@ -6,10 +6,27 @@ import { editWorkerState } from '../../actions/editWorkerState/editWorkerState';
 import { workerMock, mockId } from '../../../mocks/store/constants';
 import { fromObjectToFormData } from '../../utils';
 
+const dataState = {
+  ...initialState,
+  data: null,
+  loading: true,
+};
+
+const loadingState = {
+  ...initialState,
+  loading: false,
+};
+
+const errorState = {
+  ...initialState,
+  loading: true,
+  error: false,
+};
+
 describe('worker reducer', () => {
   describe('loading should be true', () => {
     it('dispatch LOAD_WORKER_DATA action', () => {
-      const reducer = worker(initialState, loadWorkerData(mockId));
+      const reducer = worker(loadingState, loadWorkerData(mockId));
       expect(reducer).toEqual({
         ...initialState,
         loading: true,
@@ -17,7 +34,7 @@ describe('worker reducer', () => {
     });
 
     it('dispatch EDIT_WORKER_DATA action', () => {
-      const reducer = worker(initialState, editWorkerData(workerMock.success.data, mockId));
+      const reducer = worker(loadingState, editWorkerData(workerMock.success.data, mockId));
       expect(reducer).toEqual({
         ...initialState,
         loading: true,
@@ -26,7 +43,7 @@ describe('worker reducer', () => {
 
     it('dispatch ADD_WORKER_DATA action', () => {
       const reducer = worker(
-        initialState,
+        loadingState,
         addWorkerData(fromObjectToFormData(workerMock.success.data)),
       );
       expect(reducer).toEqual({
@@ -38,7 +55,7 @@ describe('worker reducer', () => {
 
   describe('error should be true', () => {
     it('dispatch LOAD_WORKER_FAILED action', () => {
-      const reducer = worker(initialState, loadWorkerDataFailed(true));
+      const reducer = worker(errorState, loadWorkerDataFailed(true));
       expect(reducer).toEqual({
         ...initialState,
         error: true,
@@ -46,7 +63,7 @@ describe('worker reducer', () => {
     });
 
     it('dispatch EDIT_WORKER_FAILED action', () => {
-      const reducer = worker(initialState, editWorkerDataFailed(true));
+      const reducer = worker(errorState, editWorkerDataFailed(true));
       expect(reducer).toEqual({
         ...initialState,
         error: true,
@@ -54,7 +71,7 @@ describe('worker reducer', () => {
     });
 
     it('dispatch ADD_WORKER_FAILED action', () => {
-      const reducer = worker(initialState, addWorkerDataFailed(true));
+      const reducer = worker(errorState, addWorkerDataFailed(true));
       expect(reducer).toEqual({
         ...initialState,
         error: true,
@@ -64,7 +81,7 @@ describe('worker reducer', () => {
 
   describe('data should be', () => {
     it('dispatch LOAD_WORKER_SUCCESS action', () => {
-      const reducer = worker(initialState, loadWorkerDataSuccess(workerMock.success.data));
+      const reducer = worker(dataState, loadWorkerDataSuccess(workerMock.success.data));
       expect(reducer).toEqual({
         ...initialState,
         data: workerMock.success.data,
@@ -72,7 +89,7 @@ describe('worker reducer', () => {
     });
 
     it('dispatch EDIT_WORKER_SUCCESS action', () => {
-      const reducer = worker(initialState, editWorkerDataSuccess(workerMock.success.data));
+      const reducer = worker(dataState, editWorkerDataSuccess(workerMock.success.data));
       expect(reducer).toEqual({
         ...initialState,
         data: {
@@ -82,7 +99,7 @@ describe('worker reducer', () => {
     });
 
     it('dispatch ADD_WORKER_SUCCESS action', () => {
-      const reducer = worker(initialState, addWorkerDataSuccess(workerMock.success));
+      const reducer = worker(dataState, addWorkerDataSuccess(workerMock.success));
       expect(reducer).toEqual({
         ...initialState,
         data: workerMock.success,
@@ -90,7 +107,7 @@ describe('worker reducer', () => {
     });
 
     it('dispatch EDIT_WORKER_STATE action', () => {
-      const reducer = worker(initialState, editWorkerState(workerMock.success.data));
+      const reducer = worker(dataState, editWorkerState(workerMock.success.data));
       expect(reducer).toEqual({
         ...initialState,
         data: workerMock.success.data,

@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import WorkerCard from '../../../containers/common/WorkerCardContainer';
+import WorkerCard from '../../../containers/WorkerCardContainer';
 import { Wrapper, CenterWrapper } from './style';
 import { Worker } from '../../../types/worker';
 
 interface WorkerCardListProps {
-  workers: Worker[],
+  workers: Worker[] | null,
   loading: boolean,
   error: boolean,
 }
@@ -38,8 +38,8 @@ const WorkerCardList: FC<WorkerCardListProps> = function ({
 
   return (
     <Wrapper>
-      {workers.length ? (
-        workers.map((worker: Worker) => (
+      {workers?.length ? (
+        workers?.map((worker: Worker) => (
           <WorkerCard
             key={worker._id}
             worker={worker}

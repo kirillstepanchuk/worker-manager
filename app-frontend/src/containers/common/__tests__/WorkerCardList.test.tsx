@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import WorkerCardListContainer from '../WorkerCardListContainer';
+import WorkerCardListContainer from '../../WorkerCardListContainer';
 import { workerMockList } from '../../../mocks/store/constants';
 import createMockStore, { InitialMockState } from '../../../mocks/store/mockStore';
 import { WorkersState } from '../../../store/reducers/workers';

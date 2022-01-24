@@ -2,10 +2,10 @@ import React, { useState, SyntheticEvent, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import { loadWorkersData } from '../../store/actions/loadWorkersData/loadWorkersData';
-import { setFilterParameters } from '../../store/actions/setFilterParameters/setFilterParameters';
-import Filtration from '../../components/common/Filtration/Filtration';
-import { FilterParameters } from '../../types/filterParameters';
+import { loadWorkersData } from '../store/actions/loadWorkersData/loadWorkersData';
+import { setFilterParameters } from '../store/actions/setFilterParameters/setFilterParameters';
+import Filtration from '../components/common/Filtration/Filtration';
+import { FilterParameters } from '../types/filterParameters';
 
 const FiltrationContainer = function () {
   const [isAll, setIsAll] = useState<boolean>(true);

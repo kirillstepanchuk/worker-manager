@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
-import WorkerCardContainer from '../WorkerCardContainer';
+import WorkerCardContainer from '../../WorkerCardContainer';
 import { worker } from '../../../mocks/store/constants';
 
 const setup = () => {

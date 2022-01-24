@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { MockStore } from 'redux-mock-store';
 
-import BigWorkerContainer from '../BigWorkerContainer';
+import BigWorkerContainer from '../../BigWorkerContainer';
 import { workerMock } from '../../../mocks/store/constants';
 import createMockStore, { InitialMockState } from '../../../mocks/store/mockStore';
 import { WorkerState } from '../../../store/reducers/worker';

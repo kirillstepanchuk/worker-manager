@@ -11,11 +11,17 @@ import * as api from '../api/workers.api';
 import { handleError } from '../../utils';
 
 describe('workers saga', () => {
+  let fetchWorkers: jest.SpyInstance;
+
+  afterEach(() => {
+    fetchWorkers.mockClear();
+  });
+
   describe('load workers', () => {
     const { data } = workerMockList.filled;
 
     it('should put workers in store', async () => {
-      const fetchWorkers = jest.spyOn(api, 'loadWorkers')
+      fetchWorkers = jest.spyOn(api, 'loadWorkers')
         .mockImplementation(() => Promise.resolve(data));
 
       const dispatched: LoadWorkersData[] = [];
@@ -25,11 +31,10 @@ describe('workers saga', () => {
 
       expect(fetchWorkers).toHaveBeenCalledTimes(1);
       expect(dispatched[0]).toEqual(loadWorkersDataSuccess(data));
-      fetchWorkers.mockClear();
     });
 
     it('should throw an error in catch block', async () => {
-      const fetchWorkers = jest.spyOn(api, 'loadWorkers')
+      fetchWorkers = jest.spyOn(api, 'loadWorkers')
         .mockImplementation(() => Promise.reject(mockError.message));
 
       const dispatched: LoadWorkersData[] = [];
@@ -40,7 +45,6 @@ describe('workers saga', () => {
 
       expect(fetchWorkers).toHaveBeenCalledTimes(1);
       expect(dispatched[0]).toEqual(loadWorkersDataFailed(handleError(mockError.message)));
-      fetchWorkers.mockClear();
     });
   });
 });

@@ -7,9 +7,9 @@ import LinearProgress from '@mui/material/LinearProgress';
 import { GlobalStyle, Wrapper } from './style';
 
 const Workers = lazy(() => import('../pages/Workers/Workers'));
-const BigWorker = lazy(() => import('../../containers/pages/BigWorkerContainer'));
-const EditWorker = lazy(() => import('../../containers/pages/EditWorkerContainer'));
-const AddWorker = lazy(() => import('../../containers/pages/AddWorkerContainer'));
+const BigWorker = lazy(() => import('../../containers/BigWorkerContainer'));
+const EditWorker = lazy(() => import('../../containers/EditWorkerContainer'));
+const AddWorker = lazy(() => import('../../containers/AddWorkerContainer'));
 
 const App: FC = function () {
   return (

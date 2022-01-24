@@ -68,17 +68,17 @@ export const workerMockList = {
     error: false,
   },
   empty: {
-    data: [],
+    data: null,
     loading: false,
     error: false,
   },
   failed: {
-    data: [],
+    data: null,
     loading: false,
     error: true,
   },
   loading: {
-    data: [],
+    data: null,
     loading: true,
     error: false,
   },
