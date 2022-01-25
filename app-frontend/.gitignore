@@ -3,4 +3,6 @@ node_modules/
 dist
 .editorconfig
 coverage
-yarn-error.log
+coverage/
+yarn-debug.log*
+yarn-error.log*
