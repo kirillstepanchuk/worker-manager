@@ -27,7 +27,7 @@ const BigWorker: FC<BigWorkerProps> = function ({
   if (loading) {
     return (
       <CardContainer>
-        <LinearProgress />
+        <LinearProgress data-testid="loading" />
       </CardContainer>
     );
   }

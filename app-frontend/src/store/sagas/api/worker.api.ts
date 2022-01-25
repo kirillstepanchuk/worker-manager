@@ -1,9 +1,7 @@
 import axios from 'axios';
 
 import {
-  Worker,
-  WorkerData,
-  WorkerEdit,
+  Worker, WorkerData, WorkerEdit,
 } from '../../../types/worker';
 import { EditWorkerData } from '../../actions/editWorkerData/editWorkerData';
 import { API_URL } from '../../../constants';

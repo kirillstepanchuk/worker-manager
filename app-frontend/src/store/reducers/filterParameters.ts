@@ -1,11 +1,11 @@
 import { FilterParameters } from '../../types/filterParameters';
 import { SetFilterParametersActions, SetFilterParametersActionTypes } from '../actions/setFilterParameters/setFilterParameters';
 
-interface FilterParametersState {
-  data: FilterParameters,
+export interface FilterParametersState {
+  data: FilterParameters
 }
 
-const initialState: FilterParametersState = {
+export const initialState: FilterParametersState = {
   data: null,
 };
 

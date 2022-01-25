@@ -4,9 +4,9 @@ import React, {
 import { Dispatch } from 'redux';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 
-import AddWorker from '../../../components/pages/AddWorker/AddWorker';
-import { addWorkerData } from '../../../store/actions/addWorkerData/addWorkerData';
-import { WorkerState } from '../../../types/worker';
+import AddWorker from '../components/pages/AddWorker/AddWorker';
+import { addWorkerData } from '../store/actions/addWorkerData/addWorkerData';
+import { WorkerState } from '../types/worker';
 
 const AddWorkerContainer = function () {
   const [file, setFile] = useState<File | undefined>(undefined);

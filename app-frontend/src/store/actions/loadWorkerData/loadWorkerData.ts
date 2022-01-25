@@ -1,4 +1,4 @@
-import { WorkerData } from '../../../types/worker';
+import { Worker } from '../../../types/worker';
 
 export enum LoadWorkerDataActionTypes {
   LOAD_WORKER_DATA = 'LOAD_WORKER_DATA',
@@ -15,7 +15,7 @@ export interface LoadWorkerData {
 
 interface LoadWorkerDataSuccess {
   type: LoadWorkerDataActionTypes.LOAD_WORKER_DATA_SUCCESS,
-  payload: WorkerData,
+  payload: Worker,
 }
 
 interface LoadWorkerDataFailed {
@@ -32,7 +32,7 @@ export const loadWorkerData = (id: string): LoadWorkerData => ({
   },
 });
 
-export const loadWorkerDataSuccess = (data: WorkerData): LoadWorkerDataSuccess => ({
+export const loadWorkerDataSuccess = (data: Worker): LoadWorkerDataSuccess => ({
   type: LoadWorkerDataActionTypes.LOAD_WORKER_DATA_SUCCESS,
   payload: data,
 });

@@ -1,6 +1,6 @@
-import { AxiosResponse } from 'axios';
 import { put, call, takeEvery } from 'redux-saga/effects';
 import { goBack } from 'connected-react-router';
+import { SagaIterator } from 'redux-saga';
 
 import {
   LoadWorkerData,
@@ -26,11 +26,11 @@ import {
   WorkerData,
 } from '../../../types/worker';
 import { loadWorker, addWorker, editWorker } from '../api/worker.api';
-import handleError from '../../utils';
+import { handleError } from '../../utils';
 
-export function* loadWorkerData(action: LoadWorkerData) {
+export function* getWorkerData(action: LoadWorkerData): SagaIterator<void> {
   try {
-    const responseData: AxiosResponse<Worker> = yield call(loadWorker, action.payload.id);
+    const responseData: Worker = yield call(loadWorker, action.payload.id);
 
     yield put(loadWorkerDataSuccess(responseData));
   } catch (error: unknown) {
@@ -38,7 +38,7 @@ export function* loadWorkerData(action: LoadWorkerData) {
   }
 }
 
-export function* addWorkerData(action: AddWorkerData) {
+export function* appendWorkerData(action: AddWorkerData): SagaIterator<void> {
   try {
     const data: WorkerData = yield call(addWorker, action.payload);
 
@@ -49,7 +49,7 @@ export function* addWorkerData(action: AddWorkerData) {
   }
 }
 
-export function* editWorkerData(action: EditWorkerData) {
+export function* changeWorkerData(action: EditWorkerData): SagaIterator<void> {
   try {
     const data: WorkerEdit = yield call(editWorker, action);
 
@@ -61,7 +61,7 @@ export function* editWorkerData(action: EditWorkerData) {
 }
 
 export default function* workerWatcher() {
-  yield takeEvery(LoadWorkerDataActionTypes.LOAD_WORKER_DATA, loadWorkerData);
-  yield takeEvery(AddWorkerDataActionTypes.ADD_WORKER_DATA, addWorkerData);
-  yield takeEvery(EditWorkerDataActionTypes.EDIT_WORKER_DATA, editWorkerData);
+  yield takeEvery(LoadWorkerDataActionTypes.LOAD_WORKER_DATA, getWorkerData);
+  yield takeEvery(AddWorkerDataActionTypes.ADD_WORKER_DATA, appendWorkerData);
+  yield takeEvery(EditWorkerDataActionTypes.EDIT_WORKER_DATA, changeWorkerData);
 }

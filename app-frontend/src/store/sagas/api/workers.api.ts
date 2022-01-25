@@ -4,7 +4,8 @@ import { Worker } from '../../../types/worker';
 import { LoadWorkersDataPayload } from '../../actions/loadWorkersData/loadWorkersData';
 import { API_URL } from '../../../constants';
 
-const loadWorkers = async (payload: LoadWorkersDataPayload): Promise<Worker[]> => {
+// eslint-disable-next-line import/prefer-default-export
+export const loadWorkers = async (payload: LoadWorkersDataPayload): Promise<Worker[]> => {
   const url = new URL(`${API_URL}/workers`);
   url.searchParams.append('pageNumber', String(payload.page));
   url.searchParams.append('positionType', String(payload.filterParameters?.positionType));
@@ -18,5 +19,3 @@ const loadWorkers = async (payload: LoadWorkersDataPayload): Promise<Worker[]> =
 
   return response.data;
 };
-
-export default loadWorkers;

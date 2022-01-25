@@ -5,11 +5,11 @@ import { useParams } from 'react-router-dom';
 import { Dispatch } from 'redux';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 
-import { loadWorkerData } from '../../../store/actions/loadWorkerData/loadWorkerData';
-import { editWorkerState } from '../../../store/actions/editWorkerState/editWorkerState';
-import { editWorkerData } from '../../../store/actions/editWorkerData/editWorkerData';
-import { WorkerState, WorkerEdit } from '../../../types/worker';
-import EditWorker from '../../../components/pages/EditWorker/EditWorker';
+import { loadWorkerData } from '../store/actions/loadWorkerData/loadWorkerData';
+import { editWorkerState } from '../store/actions/editWorkerState/editWorkerState';
+import { editWorkerData } from '../store/actions/editWorkerData/editWorkerData';
+import { WorkerState, WorkerEdit } from '../types/worker';
+import EditWorker from '../components/pages/EditWorker/EditWorker';
 
 const EditWorkerContainer = function () {
   const dispatch: Dispatch = useDispatch();

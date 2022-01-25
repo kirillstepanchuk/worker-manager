@@ -4,12 +4,13 @@ import { EditWorkerDataActions, EditWorkerDataActionTypes } from '../actions/edi
 import { EditWorkerStateActions, EditWorkerStateActionTypes } from '../actions/editWorkerState/editWorkerState';
 import { WorkerData, WorkerEdit, WorkerEditData } from '../../types/worker';
 
-interface WorkerState {
+export interface WorkerState {
   data: WorkerData | WorkerEdit | WorkerEditData | null,
   loading: boolean,
   error: boolean,
 }
-const initialState: WorkerState = {
+
+export const initialState: WorkerState = {
   data: null,
   loading: false,
   error: false,
@@ -76,8 +77,9 @@ const worker = (state: WorkerState = initialState, action: WorkerActionTypes): W
       };
     case EditWorkerStateActionTypes.EDIT_WORKER_STATE:
       return {
-        ...state,
         data: { ...state.data, ...action.payload },
+        loading: false,
+        error: false,
       };
     default:
       return state;

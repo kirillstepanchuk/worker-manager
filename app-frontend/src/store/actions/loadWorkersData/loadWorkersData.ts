@@ -34,7 +34,7 @@ export type LoadWorkersDataActions =
 
 export const loadWorkersData = (
   page = 1,
-  filterParameters: FilterParameters = {},
+  filterParameters: FilterParameters = null,
 ): LoadWorkersData => ({
   type: LoadWorkersDataActionTypes.LOAD_WORKERS_DATA,
   payload: {

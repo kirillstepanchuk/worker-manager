@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, FC } from 'react';
 import {
   Route, Switch, Redirect,
 } from 'react-router-dom';
@@ -7,11 +7,11 @@ import LinearProgress from '@mui/material/LinearProgress';
 import { GlobalStyle, Wrapper } from './style';
 
 const Workers = lazy(() => import('../pages/Workers/Workers'));
-const BigWorker = lazy(() => import('../../containers/pages/BigWorker/BigWorkerContainer'));
-const EditWorker = lazy(() => import('../../containers/pages/EditWorker/EditWorkerContainer'));
-const AddWorker = lazy(() => import('../../containers/pages/AddWorker/AddWorkerContainer'));
+const BigWorker = lazy(() => import('../../containers/BigWorkerContainer'));
+const EditWorker = lazy(() => import('../../containers/EditWorkerContainer'));
+const AddWorker = lazy(() => import('../../containers/AddWorkerContainer'));
 
-const App = function () {
+const App: FC = function () {
   return (
     <Wrapper>
       <GlobalStyle />
