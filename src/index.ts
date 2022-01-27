@@ -11,7 +11,7 @@ const router = require('./routes/index');
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3001',
+  origin: 'https://workermanager.herokuapp.com',
   preflightContinue: true,
   optionsSuccessStatus: 200,
   credentials: true,
