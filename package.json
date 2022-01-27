@@ -8,7 +8,7 @@
 		"start": "nodemon ./src/index.ts --env mode=development",
 		"build": "webpack --env mode=production",
 		"lint": "eslint ./ --fix",
-		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn --prefix client && yarn build --prefix client"
+		"heroku-postbuild": "cd app-frontend && yarn && yarn build"
 	},
 	"author": "Kirill Stepanchuk <kirill.steapnchuk.96@mail.ru>",
 	"license": "ISC",

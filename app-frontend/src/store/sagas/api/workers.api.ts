@@ -1,8 +1,7 @@
-import axios from 'axios';
-
 import { Worker } from '../../../types/worker';
 import { LoadWorkersDataPayload } from '../../actions/loadWorkersData/loadWorkersData';
 import { API_URL } from '../../../constants';
+import { axiosInstance } from '../../../config';
 
 // eslint-disable-next-line import/prefer-default-export
 export const loadWorkers = async (payload: LoadWorkersDataPayload): Promise<Worker[]> => {
@@ -12,10 +11,7 @@ export const loadWorkers = async (payload: LoadWorkersDataPayload): Promise<Work
   url.searchParams.append('sortingType', String(payload.filterParameters?.sortingType as string));
   url.searchParams.append('time', String(payload.filterParameters?.time));
 
-  const response = await axios({
-    url: url.toString(),
-    method: 'GET',
-  });
+  const response = await axiosInstance.get(url.toString());
 
   return response.data;
 };
