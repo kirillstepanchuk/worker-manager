@@ -1,9 +1,11 @@
+import { Request, Response } from 'express';
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 
-const { APP_PORT } = require('./config');
+const { APP_PORT, MONGODB_URI } = require('./config');
 const router = require('./routes/index');
 
 const app = express();
@@ -23,10 +25,16 @@ app.use('/getImage', express.static(path.join(__dirname, 'uploads')));
 
 app.use(router);
 
+app.use(express.static(path.resolve(__dirname, '../app-frontend/dist')));
+
+app.get('*', (req: Request, res: Response) => {
+  res.sendFile(path.resolve(__dirname, '../app-frontend/dist', 'index.html'));
+});
+
 const startServer = async () => {
   try {
     mongoose.connect(
-      'mongodb+srv://kirill:qawsed@cluster0.zx4sa.mongodb.net/Cluster0?retryWrites=true&w=majority',
+      MONGODB_URI,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
