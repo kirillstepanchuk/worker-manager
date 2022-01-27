@@ -1,5 +1,7 @@
 import axios from 'axios';
 
-export const axiosInstance = axios.create({
-  baseURL: 'https://workermanager.herokuapp.com/'
-})
+const axiosInstance = axios.create({
+  baseURL: 'https://workermanager.herokuapp.com/',
+});
+
+export default axiosInstance;
