@@ -1,7 +1,6 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const common = require('./webpack.common');
 
 module.exports = merge(common('prod'), {
@@ -18,7 +17,4 @@ module.exports = merge(common('prod'), {
       new TerserPlugin(),
     ],
   },
-  plugins: [
-    new BundleAnalyzerPlugin(),
-  ],
 });
