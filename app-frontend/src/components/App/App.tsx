@@ -17,11 +17,11 @@ const App: FC = function () {
       <GlobalStyle />
       <Suspense fallback={<LinearProgress />}>
         <Switch>
-          <Route path="/#/workers"><Workers /></Route>
-          <Route path="/#/worker/:id"><BigWorker /></Route>
-          <Route path="/#/worker-edit/:id"><EditWorker /></Route>
-          <Route path="/#/worker-add"><AddWorker /></Route>
-          <Redirect to="/#/workers" />
+          <Route path="/workers"><Workers /></Route>
+          <Route path="/worker/:id"><BigWorker /></Route>
+          <Route path="/worker-edit/:id"><EditWorker /></Route>
+          <Route path="/worker-add"><AddWorker /></Route>
+          <Redirect to="/workers" />
         </Switch>
       </Suspense>
     </Wrapper>
